@@ -8,9 +8,9 @@ const routes: Routes = [
 	{
 		path: 'app', children: [
 			{ path: '', loadChildren: 'app/content/pages/pages.module#PagesModule' }
-		], canActivate: [
+		]/* , canActivate: [
 			AuthGuard
-		]
+		] */
 	},
 	{ path: '', loadChildren: _pathLandpage },
 	{

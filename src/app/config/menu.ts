@@ -460,7 +460,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Some description goes here',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: '/',
+						page: '/app',
 						badge: {type: 'm-badge--danger', value: '2'},
 						translate: 'MENU.DASHBOARD'
 					},
