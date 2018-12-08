@@ -29,7 +29,7 @@ import { LayoutConfigStorageService } from "./layout-config-storage.service";
 		LogsService,
 		QuickSearchService,
 		DataTableService,
-		SplashScreenService
+		SplashScreenService		
     ]
 })
 export class MetronicServiceModule { }

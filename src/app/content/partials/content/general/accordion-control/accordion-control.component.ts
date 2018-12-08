@@ -10,7 +10,7 @@ import {
 	TemplateRef,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { isString } from 'util';
+import { isString } from '../../../../../core/services/metronic/utils.service';
 
 let nextId = 0;
 /**
@@ -180,7 +180,7 @@ export class AccordionControlComponent implements AfterContentChecked {
 		if (panel && !panel.disabled) {
 			let defaultPrevented = false;
 			if (this.hasAnimation) {
-				panel.height = panel.height  ? 0 : panel.contentHeight;
+				panel.height = panel.height ? 0 : panel.contentHeight;
 			}
 
 			this.panelChange.emit(
@@ -199,9 +199,8 @@ export class AccordionControlComponent implements AfterContentChecked {
 
 	ngAfterContentChecked() {
 		// active id updates
-		console.log(this.activeIds);
-		if (isString(this.activeIds)) {			
-			//this.activeIds = this.activeIds.split(/\s*,\s*/);
+		if (isString(this.activeIds)) {
+			this.activeIds = this.activeIds.split(/\s*,\s*/);
 		}
 
 		// update panels open states
