@@ -1,4 +1,4 @@
-export interface CPCredentials {
+export interface Credentials {
   email: string,
   password: string
 }

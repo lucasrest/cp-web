@@ -1,25 +1,25 @@
 import { Injectable } from "@angular/core";
 import { STORAGE_KEYS } from "../../../config/storage_keys.config";
-import { CPToken } from "../../interfaces/token";
+import { Token } from "../../interfaces/token";
 
 //Criar Modulo
 @Injectable()
 export class CPLocalStorageService {
 
-    setToken(cpToken: CPToken) {
-        if(cpToken == null) {
+    setToken(token: Token) {
+        if(token == null) {
             localStorage.removeItem(STORAGE_KEYS.TOKEN);
         } else {
-            localStorage.setItem(STORAGE_KEYS.TOKEN, JSON.stringify(cpToken));
+            localStorage.setItem(STORAGE_KEYS.TOKEN, JSON.stringify(token));
         }
     }
 
-    getToken() : CPToken {
-        let cpToken = localStorage.getItem(STORAGE_KEYS.TOKEN);
-        if(cpToken == null) {
+    getToken() : Token {
+        let token = localStorage.getItem(STORAGE_KEYS.TOKEN);
+        if(token == null) {
             return null;
         } else {
-            return JSON.parse(cpToken);
+            return JSON.parse(token);
         }
     }
 

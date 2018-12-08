@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -24,6 +24,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 		MatInputModule,
 		MatFormFieldModule,
 		MatCheckboxModule,
+		ReactiveFormsModule,
 		TranslateModule.forChild(),
 		SpinnerButtonModule,
 		RouterModule.forChild([

@@ -8,6 +8,8 @@ import {
 
 import { TokenStorage } from './token-storage.service';
 import { AuthenticationService } from './authentication.service';
+import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 export function factory(authenticationService: AuthenticationService) {
 	return authenticationService;
@@ -18,6 +20,8 @@ export function factory(authenticationService: AuthenticationService) {
 	providers: [
 		TokenStorage,
 		AuthenticationService,
+		AuthService,
+		UserService,
 		{ provide: PROTECTED_FALLBACK_PAGE_URI, useValue: '/' },
 		{ provide: PUBLIC_FALLBACK_PAGE_URI, useValue: '/login' },
 		{

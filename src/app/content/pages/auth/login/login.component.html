@@ -7,19 +7,17 @@
 <m-auth-notice></m-auth-notice>
 
 <!--begin::Form-->
-<form class="m-login__form m-form" name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+<form class="m-login__form m-form" name="form" (ngSubmit)="login()" [formGroup]="formGroup" novalidate>
 	<div class="form-group">
 		<mat-form-field>
 			<mat-label>Email</mat-label>
-			<input matInput type="email" name="email" placeholder="Email address" autocomplete="off"
-				   [(ngModel)]="model.email" #email="ngModel" email="true" required>
+			<input matInput type="email" name="email" placeholder="Email address" autocomplete="off" formControlName="email">
 		</mat-form-field>
 	</div>
 	<div class="form-group">
 		<mat-form-field>
 			<mat-label>Password</mat-label>
-			<input matInput minlength="4" type="password" name="password" placeholder="Password" autocomplete="off"
-				   [(ngModel)]="model.password" #password="ngModel" required>
+			<input matInput type="password" name="password" placeholder="Password" autocomplete="off" formControlName="password">
 		</mat-form-field>
 	</div>
 </form>
@@ -30,43 +28,10 @@
 	<a href="javascript:;" (click)="forgotPasswordPage($event)" class="m-link">
 		<span translate="AUTH.GENERAL.FORGOT_BUTTON">Forgot Password?</span>
 	</a>
-	<m-spinner-button [options]="spinner" (click)="submit()">{{'AUTH.LOGIN.BUTTON' | translate}}</m-spinner-button>
+	<m-spinner-button [options]="spinner" (click)="login()">{{'AUTH.LOGIN.BUTTON' | translate}}</m-spinner-button>
 </div>
 <!--end::Action-->
 
-<!--begin::Divider-->
-<div class="m-login__form-divider">
-	<div class="m-divider">
-		<span></span>
-		<span translate="AUTH.GENERAL.OR">OR</span>
-		<span></span>
-	</div>
-</div>
-<!--end::Divider-->
 
-<!--begin::Options-->
-<div class="m-login__options">
-	<a href="javascript:;" mat-raised-button color="primary">
-			<span>
-				<i class="fab fa-facebook-f"></i>&nbsp;
-				<span>Facebook</span>
-			</span>
-	</a>
-
-	<a href="javascript:;" mat-raised-button color="accent">
-			<span>
-				<i class="fab fa-twitter"></i>&nbsp;
-				<span>Twitter</span>
-			</span>
-	</a>
-
-	<a href="javascript:;" mat-raised-button color="warn">
-			<span>
-				<i class="fab fa-google"></i>&nbsp;
-				<span>Google</span>
-			</span>
-	</a>
-</div>
-<!--end::Options-->
 <!--</div>-->
 <!--end::Signin-->
