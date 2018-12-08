@@ -462,6 +462,14 @@ export class MenuConfig implements ConfigModel {
 						page: '/',
 						badge: {type: 'm-badge--danger', value: '2'},
 						translate: 'MENU.DASHBOARD'
+					},
+					{
+						title: 'Ingredientes',
+						desc: 'Some description goes here',
+						root: true,
+						icon: 'flaticon-line-graph',
+						page: '/app/ingredient',
+						translate: 'MENU.INGREDIENT'
 					}
 				]
 			}
