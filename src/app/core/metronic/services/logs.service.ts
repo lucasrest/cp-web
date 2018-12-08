@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LogData } from '../../interfaces/log-data';
 import { UtilsService } from './utils.service';
 import { tap } from 'rxjs/operators';
+import { LogData } from '../interfaces/log-data';
 
 @Injectable()
 export class LogsService {

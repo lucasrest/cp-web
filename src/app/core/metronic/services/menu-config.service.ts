@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ConfigData } from '../../interfaces/config-data';
 import { BehaviorSubject } from 'rxjs';
 import { filter} from 'rxjs/operators';
 import * as objectPath from 'object-path';

@@ -7,7 +7,7 @@ import { ScrollTopComponent } from './layout/scroll-top/scroll-top.component';
 import { TooltipsComponent } from './layout/tooltips/tooltips.component';
 import { ListSettingsComponent } from './layout/quick-sidebar/list-settings/list-settings.component';
 import { MessengerModule } from './layout/quick-sidebar/messenger/messenger.module';
-import { CoreModule } from '../../core/core.module';
+import { MetronicCoreModule } from '../../core/metronic/metronic-core.module';
 import { ListTimelineModule } from './layout/quick-sidebar/list-timeline/list-timeline.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NoticeComponent } from './content/general/notice/notice.component';
@@ -88,7 +88,7 @@ import { MatInputModule,
 		PerfectScrollbarModule,
 		MessengerModule,
 		ListTimelineModule,
-		CoreModule,
+		MetronicCoreModule,
 		PortletModule,
 		SpinnerButtonModule,
 		MatSortModule,

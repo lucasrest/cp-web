@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import * as objectPath from 'object-path';
 import { Router } from '@angular/router';
-import { LayoutConfigService } from '../../../../core/services/metronic/layout-config.service';
+import { LayoutConfigService } from '../../../../core/metronic/services/layout-config.service';
 
 @Component({
 	selector: 'm-topbar',

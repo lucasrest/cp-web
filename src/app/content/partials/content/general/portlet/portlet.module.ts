@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoreModule } from '../../../../../core/core.module';
+import { MetronicCoreModule } from '../../../../../core/metronic/metronic-core.module';
 import {
 	MatProgressSpinnerModule,
 	MatProgressBarModule
@@ -10,7 +10,7 @@ import { PortletComponent } from './portlet.component';
 @NgModule({
 	imports: [
 		CommonModule,
-		CoreModule,
+		MetronicCoreModule,
 		MatProgressSpinnerModule,
 		MatProgressBarModule
 	],

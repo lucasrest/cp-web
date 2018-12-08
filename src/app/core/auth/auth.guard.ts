@@ -1,9 +1,9 @@
-import { TokenDTO } from '../models/security/dto/token-dto';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CPLocalStorageService } from '../services/common/cp-localstorage.service';
 import { ROTAS } from '../constants/rotas';
+import { CPToken } from '../interfaces/token';
+import { CPLocalStorageService } from '../services/common/cp-localstorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +24,8 @@ export class AuthGuard implements CanActivate {
     if (this.endpointWithoutVerification(state.url))
       return true;
 
-    let tokenDTO: TokenDTO = this._cpLocalStorageService.getToken();
-    if (!tokenDTO) {
+    let cpToken: CPToken = this._cpLocalStorageService.getToken();
+    if (!cpToken) {
       this._router.navigate([ROTAS.LOGIN]);
       return false;
     }

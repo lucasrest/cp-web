@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { SubheaderService } from '../../../core/services/metronic/layout/subheader.service';
+import { SubheaderService } from '../../../core/metronic/services/layout/subheader.service';
 
 @Component({
 	selector: 'm-subheader',

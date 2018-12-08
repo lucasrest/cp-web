@@ -5,7 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { PartialsModule } from '../partials/partials.module';
 import { ProfileComponent } from './header/profile/profile.component';
-import { CoreModule } from '../../core/core.module';
+import { MetronicCoreModule } from '../../core/metronic/metronic-core.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,7 @@ import { InnerComponent } from './components/inner/inner.component';
 		HttpClientModule,
 		FormsModule,
 		PagesRoutingModule,
-		CoreModule,
+		MetronicCoreModule,
 		LayoutModule,
 		PartialsModule,
 		AngularEditorModule,

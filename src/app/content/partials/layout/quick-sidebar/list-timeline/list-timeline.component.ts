@@ -4,9 +4,9 @@ import {
 	Input,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { LogData } from '../../../../../core/interfaces/log-data';
 import { Observable } from 'rxjs';
-import { LogsService } from '../../../../../core/services/metronic/logs.service';
+import { LogData } from '../../../../../core/metronic/interfaces/log-data';
+import { LogsService } from '../../../../../core/metronic/services/logs.service';
 
 @Component({
 	selector: 'm-list-timeline',

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input, OnInit } from '@angular/core';
 import * as objectPath from 'object-path';
 import { DOCUMENT } from '@angular/common';
-import { ClassInitService } from '../../../../core/services/metronic/class-init.service';
-import { LayoutConfigService } from '../../../../core/services/metronic/layout-config.service';
+import { ClassInitService } from '../../../../core/metronic/services/class-init.service';
+import { LayoutConfigService } from '../../../../core/metronic/services/layout-config.service';
 
 @Component({
 	selector: 'm-brand',

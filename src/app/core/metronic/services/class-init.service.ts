@@ -1,8 +1,8 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import * as objectPath from 'object-path';
-import { ConfigModel } from '../../interfaces/config';
 import { LayoutConfigService } from './layout-config.service';
+import { ConfigModel } from '../interfaces/config';
 
 @Injectable()
 export class ClassInitService {

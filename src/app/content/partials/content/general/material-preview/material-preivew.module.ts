@@ -7,7 +7,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 import { MaterialPreviewComponent } from './material-preview.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { CoreModule } from '../../../../../core/core.module';
+import { MetronicCoreModule } from '../../../../../core/metronic/metronic-core.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
@@ -15,7 +15,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 	imports: [
 		CommonModule,
 		NgbModule,
-		CoreModule,
+		MetronicCoreModule,
 		HighlightModule.forRoot({ theme: 'googlecode' }),
 		PerfectScrollbarModule,
 

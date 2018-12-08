@@ -8,8 +8,8 @@ import {
 	Router
 } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { LayoutRefService } from '../../../core/services/metronic/layout/layout-ref.service';
-import { HeaderService } from '../../../core/services/metronic/layout/header.service';
+import { LayoutRefService } from '../../../core/metronic/services/layout/layout-ref.service';
+import { HeaderService } from '../../../core/metronic/services/layout/header.service';
 
 @Component({
 	selector: 'm-header',

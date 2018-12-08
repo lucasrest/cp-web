@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LogsService } from '../../../../../../core/services/metronic/logs.service';
+import { LogsService } from '../../../../../../core/metronic/services/logs.service';
 
 @Component({
 	selector: 'm-audit-log',

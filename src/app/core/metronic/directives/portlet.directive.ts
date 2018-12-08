@@ -8,11 +8,10 @@ import {
 	Input,
 	HostBinding
 } from '@angular/core';
-import { Router } from '@angular/router';
 import * as objectPath from 'object-path';
 import { combineLatest } from 'rxjs';
-import { LayoutRefService } from '../services/metronic/layout/layout-ref.service';
-import { LayoutConfigService } from '../services/metronic/layout-config.service';
+import { LayoutRefService } from '../services/layout/layout-ref.service';
+import { LayoutConfigService } from '../services/layout-config.service';
 
 interface PortletOptions {
 	enableSticky?: boolean;

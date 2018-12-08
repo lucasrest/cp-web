@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import * as objectPath from 'object-path';
 import { Subscription } from 'rxjs';
-import { LayoutConfigService } from '../../../../../core/services/metronic/layout-config.service';
+import { LayoutConfigService } from '../../../../../core/metronic/services/layout-config.service';
 
 @Component({
 	selector: 'm-search-default',

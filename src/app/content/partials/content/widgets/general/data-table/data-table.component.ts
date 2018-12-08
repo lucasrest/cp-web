@@ -11,10 +11,10 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { fromEvent, merge, forkJoin } from 'rxjs';
 // Models
-import { QueryParamsModel } from '../../../../../../core/models/query-params.model';
-import { DataTableItemModel } from '../../../../../../core/models/datatable-item.model';
 import { DataTableDataSource } from './data-table.data-source';
-import { DataTableService } from '../../../../../../core/services/metronic/datatable.service';
+import { DataTableItemModel } from '../../../../../../core/metronic/models/datatable-item.model';
+import { DataTableService } from '../../../../../../core/metronic/services/datatable.service';
+import { QueryParamsModel } from '../../../../../../core/metronic/models/query-params.model';
 // Services
 
 @Component({

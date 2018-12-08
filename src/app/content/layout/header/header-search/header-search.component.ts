@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as objectPath from 'object-path';
-import { LayoutConfigService } from '../../../../core/services/metronic/layout-config.service';
+import { LayoutConfigService } from '../../../../core/metronic/services/layout-config.service';
 
 @Component({
 	selector: 'm-header-search',

@@ -9,7 +9,7 @@ import { SubheaderComponent } from './subheader/subheader.component';
 import { BrandComponent } from './header/brand/brand.component';
 import { MenuSectionComponent } from './aside/menu-section/menu-section.component';
 import { TopbarComponent } from './header/topbar/topbar.component';
-import { CoreModule } from '../../core/core.module';
+import { MetronicCoreModule } from '../../core/metronic/metronic-core.module';
 import { UserProfileComponent } from './header/topbar/user-profile/user-profile.component';
 import { SearchDropdownComponent } from './header/topbar/search-dropdown/search-dropdown.component';
 import { NotificationComponent } from './header/topbar/notification/notification.component';
@@ -97,7 +97,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 	imports: [
 		CommonModule,
 		RouterModule,
-		CoreModule,
+		MetronicCoreModule,
 		PerfectScrollbarModule,
 		NgbModule,
 		FormsModule,

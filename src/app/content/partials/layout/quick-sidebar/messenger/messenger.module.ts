@@ -4,10 +4,10 @@ import { MessengerComponent } from './messenger.component';
 import { MessengerInComponent } from './messenger-in/messenger-in.component';
 import { MessengerOutComponent } from './messenger-out/messenger-out.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { CoreModule } from '../../../../../core/core.module';
+import { MetronicCoreModule } from '../../../../../core/metronic/metronic-core.module';
 
 @NgModule({
-	imports: [CommonModule, CoreModule, PerfectScrollbarModule],
+	imports: [CommonModule, MetronicCoreModule, PerfectScrollbarModule],
 	declarations: [
 		MessengerComponent,
 		MessengerInComponent,

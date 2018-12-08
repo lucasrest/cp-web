@@ -12,10 +12,10 @@ import {
 import * as objectPath from 'object-path';
 import { BehaviorSubject } from 'rxjs';
 import { AnimationBuilder, AnimationPlayer, style, animate } from '@angular/animations';
-import { LayoutConfigService } from '../../core/services/metronic/layout-config.service';
-import { ClassInitService } from '../../core/services/metronic/class-init.service';
-import { LayoutRefService } from '../../core/services/metronic/layout/layout-ref.service';
-import { TranslationService } from '../../core/services/metronic/translation.service';
+import { LayoutConfigService } from '../../core/metronic/services/layout-config.service';
+import { ClassInitService } from '../../core/metronic/services/class-init.service';
+import { LayoutRefService } from '../../core/metronic/services/layout/layout-ref.service';
+import { TranslationService } from '../../core/metronic/services/translation.service';
 
 @Component({
 	selector: 'm-pages',

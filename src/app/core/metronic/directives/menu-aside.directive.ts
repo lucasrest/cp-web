@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 import * as objectPath from 'object-path';
 import { mergeMap } from 'rxjs/operators';
-import { LayoutConfigService } from '../services/metronic/layout-config.service';
-import { LayoutRefService } from '../services/metronic/layout/layout-ref.service';
+import { LayoutConfigService } from '../services/layout-config.service';
+import { LayoutRefService } from '../services/layout/layout-ref.service';
 
 @Directive({
 	selector: '[mMenuAside]'

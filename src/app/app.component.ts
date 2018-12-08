@@ -10,12 +10,12 @@ import { locale as esLang } from './config/i18n/es';
 import { locale as jpLang } from './config/i18n/jp';
 import { locale as deLang } from './config/i18n/de';
 import { locale as frLang } from './config/i18n/fr';
-import { LayoutConfigService } from './core/services/metronic/layout-config.service';
-import { ClassInitService } from './core/services/metronic/class-init.service';
-import { TranslationService } from './core/services/metronic/translation.service';
-import { PageConfigService } from './core/services/metronic/page-config.service';
-import { SplashScreenService } from './core/services/metronic/splash-screen.service';
-import { AclService } from './core/services/metronic/acl.service';
+import { LayoutConfigService } from './core/metronic/services/layout-config.service';
+import { ClassInitService } from './core/metronic/services/class-init.service';
+import { TranslationService } from './core/metronic/services/translation.service';
+import { PageConfigService } from './core/metronic/services/page-config.service';
+import { SplashScreenService } from './core/metronic/services/splash-screen.service';
+import { AclService } from './core/metronic/services/acl.service';
 
 // LIST KNOWN ISSUES
 // [Violation] Added non-passive event listener; https://github.com/angular/angular/issues/8866

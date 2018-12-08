@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LayoutConfig } from '../../../config/layout';
-import { LayoutConfigService } from '../../../core/services/metronic/layout-config.service';
-import { ClassInitService } from '../../../core/services/metronic/class-init.service';
-import { LayoutConfigStorageService } from '../../../core/services/metronic/layout-config-storage.service';
+import { LayoutConfigService } from '../../../core/metronic/services/layout-config.service';
+import { ClassInitService } from '../../../core/metronic/services/class-init.service';
+import { LayoutConfigStorageService } from '../../../core/metronic/services/layout-config-storage.service';
 
 @Component({
 	selector: 'm-builder',

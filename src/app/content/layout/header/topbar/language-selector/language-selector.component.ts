@@ -1,7 +1,7 @@
 import { filter } from 'rxjs/operators';
 import { Component, ElementRef, HostBinding, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
-import { TranslationService } from '../../../../../core/services/metronic/translation.service';
+import { TranslationService } from '../../../../../core/metronic/services/translation.service';
 
 interface LanguageFlag {
 	lang: string;

@@ -1,7 +1,7 @@
 // Import the core angular services.
 import { Directive } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { ClipboardService } from '../services/metronic/clipboard.sevice';
+import { ClipboardService } from '../services/clipboard.sevice';
 
 // Import the application components and services.
 

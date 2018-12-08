@@ -1,4 +1,4 @@
-import { ConfigModel } from '../core/interfaces/config';
+import { ConfigModel } from "../core/metronic/interfaces/config";
 
 export class LayoutConfig implements ConfigModel {
 	public config: any = {

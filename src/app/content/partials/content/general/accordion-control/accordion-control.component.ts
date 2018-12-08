@@ -10,7 +10,7 @@ import {
 	TemplateRef,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { isString } from '../../../../../core/services/metronic/utils.service';
+import { isString } from '../../../../../core/metronic/services/utils.service';
 
 let nextId = 0;
 /**

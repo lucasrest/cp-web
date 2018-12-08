@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as objectPath from 'object-path';
-import { LayoutConfigService } from '../../../../core/services/metronic/layout-config.service';
-import { SubheaderService } from '../../../../core/services/metronic/layout/subheader.service';
+import { LayoutConfigService } from '../../../../core/metronic/services/layout-config.service';
+import { SubheaderService } from '../../../../core/metronic/services/layout/subheader.service';
 
 @Component({
 	selector: 'm-dashboard',

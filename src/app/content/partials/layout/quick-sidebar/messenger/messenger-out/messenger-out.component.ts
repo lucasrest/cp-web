@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostBinding, ChangeDetectionStrategy } from '@angular/core';
-import { MessageData } from '../../../../../../core/interfaces/message-data';
+import { MessageData } from '../../../../../../core/metronic/interfaces/message-data';
 
 @Component({
 	selector: 'm-messenger-out',

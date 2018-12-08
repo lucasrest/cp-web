@@ -7,12 +7,11 @@ import {
 	AfterViewInit,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import * as objectPath from 'object-path';
 import { Subscription } from 'rxjs';
-import { QuickSearchDirective } from '../../../../../core/directives/quick-search.directive';
-import { LayoutConfigService } from '../../../../../core/services/metronic/layout-config.service';
-import { QuickSearchService } from '../../../../../core/services/metronic/quick-search.service';
+import { QuickSearchDirective } from '../../../../../core/metronic/directives/quick-search.directive';
+import { LayoutConfigService } from '../../../../../core/metronic/services/layout-config.service';
+import { QuickSearchService } from '../../../../../core/metronic/services/quick-search.service';
 
 @Component({
 	selector: 'm-search-dropdown',

@@ -2,11 +2,11 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBind
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as objectPath from 'object-path';
-import { MenuHorizontalOffcanvasDirective } from '../../../../core/directives/menu-horizontal-offcanvas.directive';
-import { MenuHorizontalDirective } from '../../../../core/directives/menu-horizontal.directive';
-import { ClassInitService } from '../../../../core/services/metronic/class-init.service';
-import { MenuHorizontalService } from '../../../../core/services/metronic/layout/menu-horizontal.service';
-import { MenuConfigService } from '../../../../core/services/metronic/menu-config.service';
+import { MenuHorizontalOffcanvasDirective } from '../../../../core/metronic/directives/menu-horizontal-offcanvas.directive';
+import { MenuHorizontalDirective } from '../../../../core/metronic/directives/menu-horizontal.directive';
+import { ClassInitService } from '../../../../core/metronic/services/class-init.service';
+import { MenuHorizontalService } from '../../../../core/metronic/services/layout/menu-horizontal.service';
+import { MenuConfigService } from '../../../../core/metronic/services/menu-config.service';
 
 @Component({
 	selector: 'm-menu-horizontal',

@@ -1,10 +1,10 @@
-import { AclModel } from '../../models/acl';
 import { Injectable } from '@angular/core';
-import { ConfigData } from '../../interfaces/config-data';
 import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions';
 import { from, BehaviorSubject, Subject } from 'rxjs';
 import { mergeMap, filter } from 'rxjs/operators';
 import { AuthenticationService } from '../../auth/authentication.service';
+import { ConfigData } from '../interfaces/config-data';
+import { AclModel } from '../models/acl';
 
 @Injectable()
 export class AclService implements ConfigData {

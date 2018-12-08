@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
 import { PageConfigService } from '../page-config.service';
 import { MenuConfigService } from '../menu-config.service';
 import { UtilsService } from '../utils.service';
-import { Breadcrumb } from '../../../models/breadcrumb';
+import { Breadcrumb } from '../../models/breadcrumb';
 
 @Injectable()
 export class SubheaderService {

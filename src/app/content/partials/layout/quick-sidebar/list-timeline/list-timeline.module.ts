@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListTimelineComponent } from './list-timeline.component';
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
-import { CoreModule } from '../../../../../core/core.module';
+import { MetronicCoreModule } from '../../../../../core/metronic/metronic-core.module';
 
 @NgModule({
-	imports: [CommonModule, CoreModule],
+	imports: [CommonModule, MetronicCoreModule],
 	declarations: [ListTimelineComponent, TimelineItemComponent],
 	exports: [ListTimelineComponent, TimelineItemComponent]
 })

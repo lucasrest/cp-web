@@ -1,12 +1,12 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, OnInit } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
-import { MenuAsideOffcanvasDirective } from '../../../core/directives/menu-aside-offcanvas.directive';
 import { DOCUMENT } from '@angular/common';
-import { ClassInitService } from '../../../core/services/metronic/class-init.service';
-import { MenuAsideService } from '../../../core/services/metronic/layout/menu-aside.service';
-import { LayoutConfigService } from '../../../core/services/metronic/layout-config.service';
-import { LayoutRefService } from '../../../core/services/metronic/layout/layout-ref.service';
+import { MenuAsideOffcanvasDirective } from '../../../core/metronic/directives/menu-aside-offcanvas.directive';
+import { ClassInitService } from '../../../core/metronic/services/class-init.service';
+import { MenuAsideService } from '../../../core/metronic/services/layout/menu-aside.service';
+import { LayoutConfigService } from '../../../core/metronic/services/layout-config.service';
+import { LayoutRefService } from '../../../core/metronic/services/layout/layout-ref.service';
 
 @Component({
 	selector: 'm-aside-left',

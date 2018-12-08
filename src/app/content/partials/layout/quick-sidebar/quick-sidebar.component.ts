@@ -6,7 +6,7 @@ import {
 	AfterViewInit,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { QuickSidebarOffcanvasDirective } from '../../../../core/directives/quick-sidebar-offcanvas.directive';
+import { QuickSidebarOffcanvasDirective } from '../../../../core/metronic/directives/quick-sidebar-offcanvas.directive';
 
 @Component({
 	selector: 'm-quick-sidebar',

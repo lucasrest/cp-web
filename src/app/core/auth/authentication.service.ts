@@ -8,7 +8,7 @@ import { AuthService } from 'ngx-auth';
 import { TokenStorage } from './token-storage.service';
 import { AccessData } from './access-data';
 import { Credential } from './credential';
-import { UtilsService } from '../services/metronic/utils.service';
+import { UtilsService } from '../metronic/services/utils.service';
 
 @Injectable()
 export class AuthenticationService implements AuthService {

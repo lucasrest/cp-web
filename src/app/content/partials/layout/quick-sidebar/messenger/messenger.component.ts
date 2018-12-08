@@ -4,9 +4,8 @@ import {
 	Input,
 	ChangeDetectionStrategy
 } from '@angular/core';
-import { MessageData } from '../../../../../core/interfaces/message-data';
 import { Observable } from 'rxjs';
-import { MessengerService } from '../../../../../core/services/metronic/messenger.service';
+import { MessengerService } from '../../../../../core/metronic/services/messenger.service';
 
 @Component({
 	selector: 'm-messenger',

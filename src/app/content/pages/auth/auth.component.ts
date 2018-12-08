@@ -6,8 +6,8 @@ import {
 	OnDestroy,
 } from '@angular/core';
 import { LayoutConfig } from '../../../config/layout';
-import { LayoutConfigService } from '../../../core/services/metronic/layout-config.service';
-import { TranslationService } from '../../../core/services/metronic/translation.service';
+import { LayoutConfigService } from '../../../core/metronic/services/layout-config.service';
+import { TranslationService } from '../../../core/metronic/services/translation.service';
 
 @Component({
 	selector: 'm-auth',
