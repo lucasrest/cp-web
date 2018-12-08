@@ -1,9 +1,11 @@
+import { IngredientsComponent } from './business/ingredient/ingredients/ingredients.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './header/profile/profile.component';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { InnerComponent } from "./components/inner/inner.component";
+import { IngredientComponent } from './business/ingredient/ingredient/ingredient.component';
 
 const routes: Routes = [
 	{
@@ -26,6 +28,14 @@ const routes: Routes = [
 			{
 				path: 'builder',
 				loadChildren: './builder/builder.module#BuilderModule'
+			},
+			{
+				path: 'ingrediente',
+				component: IngredientComponent
+			},
+			{
+				path: 'ingredientes',
+				component: IngredientsComponent
 			},
 			{
 				path: 'profile',

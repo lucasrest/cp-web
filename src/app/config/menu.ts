@@ -466,11 +466,11 @@ export class MenuConfig implements ConfigModel {
 					},
 					{
 						title: 'Ingredientes',
-						desc: 'Some description goes here',
+						desc: 'Lista de Ingredientes',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: '/app/ingredient',
-						translate: 'MENU.INGREDIENT'
+						page: '/app/ingredientes',
+						translate: 'MENU.INGREDIENTS'
 					}
 				]
 			}
