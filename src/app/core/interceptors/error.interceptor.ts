@@ -1,17 +1,25 @@
 import { Injectable } from "@angular/core";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ApiResponse } from "../models/api-response";
+import { HttpStatusCode } from "../constants/http-status-code";
+import { ErrorMessages } from "../constants/error-messages";
+import { ToastrService } from "ngx-toastr";
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from "rxjs";
+import { Router } from "@angular/router";
+import { ENDPOINTS } from "../constants/endpoints";
+import { ROTAS } from "../constants/rotas";
 
-//@Injectable()
-export class ErrorInterceptor /* implements HttpInterceptor  */{}
-/* 
-    constructor(public alertService: CPAlertService,
-        private _event: Events) {
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
 
+    constructor(private toast: ToastrService,
+        private router: Router) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(req)
-            .catch((err, caught) => {
+        return next.handle(req).pipe(
+            catchError((err, caught) => {
                 let apiResponse: ApiResponse;
                 if (err.error.message) {
                     apiResponse = err.error;
@@ -22,19 +30,19 @@ export class ErrorInterceptor /* implements HttpInterceptor  */{}
                     }
                 }
 
-                this.launchDeniedAccessEvent(err.status);
+                this.redirectToLoginIfDeniedAccess(err.status);
 
-                this.alertService.create({ apiResponse }).present();
+                this.toast.error(apiResponse.message);
 
-                return Observable.throw(apiResponse);
-            }) as any;
+                return throwError(apiResponse);
+            }) as any);
     }
 
 
-    launchDeniedAccessEvent(status) {
+    redirectToLoginIfDeniedAccess(status) {
         if (status == HttpStatusCode.UNAUTHORIZED ||
             status == HttpStatusCode.FORBIDDEN) {
-            this._event.publish(Channels.ACCESS_DENID);
+            this.router.navigate([ROTAS.LOGIN]);
         }
     }
 
@@ -45,11 +53,11 @@ export class ErrorInterceptor /* implements HttpInterceptor  */{}
             return err.message;
         }
 
-    } */
+    }
+}
 
-/* 
 export const ErrorInterceptorProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
     multi: true
-} */
+}

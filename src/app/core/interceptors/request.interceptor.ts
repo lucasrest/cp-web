@@ -8,7 +8,6 @@ import { Observable } from "rxjs";
 export class RequestInterceptor implements HttpInterceptor {
 
     constructor(public storageService: CPLocalStorageService) {
-        console.log('RequestInterceptor ativo.');
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>>  {
@@ -17,7 +16,7 @@ export class RequestInterceptor implements HttpInterceptor {
         let token: Token = this.getToken();
         if (token) {
             const authReq = req.clone({
-                headers: req.headers.set('Authorization', token.token)
+               headers: req.headers.set('Authorization', token.token)
             });
             return next.handle(authReq);
         }

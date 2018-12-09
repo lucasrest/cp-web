@@ -8,6 +8,10 @@ export const ENDPOINTS = {
     SECURITY: {
         LOGIN: "/login",
         USER: `${PACKAGE.SECURITY}/user`
-    }
+	},
+
+	BUSINESS: {
+		INGREDIENTS: `${PACKAGE.BUSINESS}/ingredient`
+	}
 
 }

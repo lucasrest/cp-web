@@ -20,9 +20,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import 'hammerjs';
 import { CoreModule } from './core/core.module';
 import { MetronicServiceModule } from './core/metronic/services/metronic-service.module';
-import { RequestInterceptor, RequestInterceptorProvider } from './core/interceptors/request.interceptor';
 
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -41,9 +40,9 @@ import { RequestInterceptor, RequestInterceptorProvider } from './core/intercept
 		NgbModule.forRoot(),
 		TranslateModule.forRoot(),
 		MatProgressSpinnerModule,
+		ToastrModule.forRoot()
 	],
 	providers: [
-		RequestInterceptorProvider
 	],
 	bootstrap: [AppComponent]
 })
