@@ -97,8 +97,8 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 
 	login() {
 		this.spinner.active = true;
-		this._loading.show();
 		if (this.validate()) {
+			this._loading.show();
 			this.authService.authenticate(this.formGroup.value)
 				.subscribe((res) => {
 					this.storageService.setToken(res.data);

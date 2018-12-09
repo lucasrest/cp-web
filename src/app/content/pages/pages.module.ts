@@ -13,8 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { InnerComponent } from './components/inner/inner.component';
-import { IngredientComponent } from './business/ingredient/ingredient/ingredient.component';
-import { IngredientsComponent } from './business/ingredient/ingredients/ingredients.component';
 import { MatListModule, MatCardModule, MatDividerModule } from '@angular/material';
 import { BusinessServiceModule } from '../../core/services/business/business-service.module';
 import { CpBaseComponent } from './common/cp-base/cp-base.component';

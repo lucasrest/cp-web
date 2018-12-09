@@ -18,6 +18,11 @@ export class IngredientsComponent implements OnInit {
 
 	ngOnInit() {
 		this.fetchIngredients();
+		this.ingredients = [{
+			name: 'teste'	
+		}]
+			
+		
 	}
 
 	fetchIngredients() {
