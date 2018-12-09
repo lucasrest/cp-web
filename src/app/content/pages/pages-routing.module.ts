@@ -5,37 +5,18 @@ import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './header/profile/profile.component';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { InnerComponent } from "./components/inner/inner.component";
-import { IngredientComponent } from './business/ingredient/ingredient/ingredient.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: PagesComponent,
-		// Remove comment to enable login
-		// canActivate: [NgxPermissionsGuard],
-		data: {
-			permissions: {
-				only: ['ADMIN', 'USER'],
-				except: ['GUEST'],
-				redirectTo: '/login'
-			}
-		},
-		children: [
+		component: PagesComponent, children: [
 			{
 				path: '',
-				loadChildren: './components/dashboard/dashboard.module#DashboardModule'
+				loadChildren: './business/business-pages.module#BusinessPagesModule'
 			},
 			{
 				path: 'builder',
 				loadChildren: './builder/builder.module#BuilderModule'
-			},
-			{
-				path: 'ingrediente',
-				component: IngredientComponent
-			},
-			{
-				path: 'ingredientes',
-				component: IngredientsComponent
 			},
 			{
 				path: 'profile',
@@ -49,13 +30,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'login',
-		// canActivate: [NgxPermissionsGuard],
-		loadChildren: './auth/auth.module#AuthModule',
-		data: {
-			permissions: {
-				except: 'ADMIN'
-			}
-		},
+		loadChildren: './auth/auth.module#AuthModule'
 	},
 	{
 		path: '404',

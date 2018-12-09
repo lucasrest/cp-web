@@ -23,8 +23,8 @@ export class LanguageSelectorComponent implements OnInit {
 	languages: LanguageFlag[] = [
 		{
 			lang: 'pt',
-			country: 'BR',
-			flag: 'assets/app/media/img/flags/020-flag.svg'
+			country: 'Brasil',
+			flag: 'assets/app/media/img/flags/011-brazil.svg'
 		},
 		{
 			lang: 'en',

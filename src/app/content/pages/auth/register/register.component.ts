@@ -54,13 +54,13 @@ export class RegisterComponent extends CpBaseComponent implements OnInit {
 		public authNoticeService: AuthNoticeService,
 		private translate: TranslateService,
 		private cpLoading: CpLoadingService,
-		private _formBuilder: FormBuilder,
+		private formBuilder: FormBuilder,
 	) {
 		super();
 	}
 
 	ngOnInit() {
-		this.formGroup = this._formBuilder.group({
+		this.formGroup = this.formBuilder.group({
 			name: [null, Validators.required],
 			email: [null, [Validators.required, Validators.email]],
 			password: [null, [Validators.required, Validators.minLength(6)]],

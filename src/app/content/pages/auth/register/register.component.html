@@ -1,8 +1,8 @@
 <!--begin::Signin-->
 <div class="m-login__signin">
 	<div class="m-login__title">
-		<h3 class="m-login__title">Sign Up</h3>
-		<div class="m-login__desc">Enter your details to create your account:</div>
+		<h3 class="m-login__title" translate>{{'AUTH.REGISTER.TITLE'}}</h3>
+		<div class="m-login__desc" translate>{{ 'AUTH.REGISTER.DESC'}}</div>
 	</div>
 
 	<m-auth-notice></m-auth-notice>
@@ -11,26 +11,29 @@
 	<form class="m-login__form m-form" name="form" [formGroup]="formGroup" novalidate>
 		<div class="form-group">
 			<mat-form-field>
-				<mat-label>Fullname</mat-label>
-				<input matInput type="text" name="fullname" placeholder="Fullname" autocomplete="off" formControlName="name">
+				<mat-label translate> {{ 'AUTH.INPUT.NAME' }}</mat-label>
+				<input matInput type="text" name="name" placeholder="{{'AUTH.INPUT.NAME' | translate }}" autocomplete="off"
+				 formControlName="name">
 			</mat-form-field>
 		</div>
 		<div class="form-group">
 			<mat-form-field>
-				<mat-label>Email</mat-label>
-				<input matInput type="email" name="email" placeholder="Email address" autocomplete="off" formControlName="email">
+				<mat-label translate>{{ 'AUTH.INPUT.EMAIL' }}</mat-label>
+				<input matInput type="email" name="email" placeholder="{{'AUTH.INPUT.EMAIL' | translate }}" autocomplete="off"
+				 formControlName="email">
 			</mat-form-field>
 		</div>
 		<div class="form-group">
 			<mat-form-field>
-				<mat-label>Password</mat-label>
-				<input matInput mat-icon [type]="typePassword" name="password" placeholder="Password" autocomplete="off" formControlName="password">
+				<mat-label translate> {{ 'AUTH.INPUT.PASSWORD' }}</mat-label>
+				<input matInput mat-icon [type]="typePassword" name="password" placeholder="{{'AUTH.INPUT.PASSWORD' | translate }}"
+				 autocomplete="off" formControlName="password">
 				<mat-icon matSuffix (click)="hide = !hide; changeTypePassword()">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 			</mat-form-field>
-		</div>		
+		</div>
 		<div class="form-group">
-			<mat-checkbox name="agree" required="true" formControlName="agree">I agree the
-				<a href="javascript:;">terms & conditions</a>
+			<mat-checkbox name="agree" required="true" formControlName="agree">{{ 'AUTH.INPUT.AGREE' | translate }}
+				<a href="javascript:;" translate> {{ 'AUTH.INPUT.AGREE_TERMS' }}</a>
 			</mat-checkbox>
 		</div>
 	</form>
@@ -38,8 +41,8 @@
 
 	<!--begin::Action-->
 	<div class="m-login__action m-login__action--fit">
-		<button mat-button (click)="loginPage($event)" [disabled]="loading" translate="AUTH.GENERAL.BACK_BUTTON">Back</button>
-		<m-spinner-button [options]="spinner" (click)="submit()">{{'AUTH.GENERAL.SIGNUP_BUTTON' | translate}}</m-spinner-button>
+		<button mat-button (click)="loginPage($event)" [disabled]="loading">{{ 'AUTH.GENERAL.BACK_BUTTON' | translate }}</button>
+		<m-spinner-button [options]="spinner" (click)="submit()">{{'AUTH.GENERAL.SIGNUP_BUTTON' | translate }}</m-spinner-button>
 	</div>
 	<!--end::Action-->
 </div>

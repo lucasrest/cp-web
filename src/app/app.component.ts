@@ -5,11 +5,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 // language list
 import { locale as enLang } from './config/i18n/en';
-import { locale as chLang } from './config/i18n/ch';
 import { locale as esLang } from './config/i18n/es';
-import { locale as jpLang } from './config/i18n/jp';
-import { locale as deLang } from './config/i18n/de';
-import { locale as frLang } from './config/i18n/fr';
+import { locale as ptLang } from './config/i18n/pt';
 import { LayoutConfigService } from './core/metronic/services/layout-config.service';
 import { ClassInitService } from './core/metronic/services/class-init.service';
 import { TranslationService } from './core/metronic/services/translation.service';
@@ -27,7 +24,7 @@ import { AclService } from './core/metronic/services/acl.service';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit, OnInit {
-	title = 'Metronic';
+	title = 'Chefpro';
 
 	@HostBinding('style') style: any;
 	@HostBinding('class') classes: any = '';
@@ -43,8 +40,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 		private translationService: TranslationService,
 		private router: Router,
 		private pageConfigService: PageConfigService,
-		private splashScreenService: SplashScreenService,
-		private aclService: AclService
+		private splashScreenService: SplashScreenService
 	) {
 		// subscribe to class update event
 		this.classInitService.onClassesUpdated$.subscribe(classes => {
@@ -68,7 +64,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 		});
 
 		// register translations
-		this.translationService.loadTranslations(enLang, chLang, esLang, jpLang, deLang, frLang);
+		this.translationService.loadTranslations(enLang, esLang, ptLang);
 
 		// override config by router change from pages config
 		this.router.events

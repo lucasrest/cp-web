@@ -21,7 +21,6 @@ import { AuthService } from '../../../../core/auth/auth.service';
 import { ROTAS } from '../../../../core/constants/rotas';
 import { CPLocalStorageService } from '../../../../core/services/common/cp-localstorage.service';
 import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
-import { ToastrService } from 'ngx-toastr';
 import { CpBaseComponent } from '../../common/cp-base/cp-base.component';
 
 @Component({
@@ -63,8 +62,7 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 		private authService: AuthService,
 		private storageService: CPLocalStorageService,
 		private formBuilder: FormBuilder,
-		private _loading: CpLoadingService,
-		private toast: ToastrService
+		private _loading: CpLoadingService
 	) {
 		super();
 	}
@@ -111,7 +109,6 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 				}, err => {
 					this.spinner.active = false;
 					this._loading.hide();
-					this.toast.error(err.error);
 					this.authNoticeService.setNotice(err.error, 'error');
 					this.cdr.detectChanges();
 				});

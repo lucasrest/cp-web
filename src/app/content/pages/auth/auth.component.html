@@ -2,7 +2,7 @@
 
 	<div class="m-grid__item m-grid__item--fluid  m-grid__item--order-tablet-and-mobile-1 m-login__wrapper">
 		<!--begin::Head-->
-		<div class="m-login__head">
+		<div class="m-login__head" *ngIf="action === 'login'">
 			<span translate="AUTH.GENERAL.NO_ACCOUNT">Don't have an account?</span>
 			<a href="javascript:;" (click)="register()" class="m-link m--font-danger" translate="AUTH.GENERAL.SIGNUP_BUTTON">Sign Up</a>
 		</div>

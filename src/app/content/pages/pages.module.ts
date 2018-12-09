@@ -25,8 +25,6 @@ import { CpBaseComponent } from './common/cp-base/cp-base.component';
 		ProfileComponent,
 		ErrorPageComponent,
 		InnerComponent,
-		IngredientComponent,
-		IngredientsComponent,
 		CpBaseComponent,
 	],
 	imports: [
