@@ -3,7 +3,7 @@ import { BusinessPagesRoutingModule } from "./business-pages-routing.module";
 
 @NgModule({
     imports: [
-        BusinessPagesRoutingModule
+		BusinessPagesRoutingModule
     ]
 })
 export class BusinessPagesModule { }

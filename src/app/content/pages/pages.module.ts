@@ -44,7 +44,7 @@ import { CpBaseComponent } from './common/cp-base/cp-base.component';
 		BusinessServiceModule
 	],
 	providers: [
-		
+
 	]
 })
 export class PagesModule {
