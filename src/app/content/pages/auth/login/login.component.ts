@@ -22,6 +22,7 @@ import { ROTAS } from '../../../../core/constants/rotas';
 import { CPLocalStorageService } from '../../../../core/services/common/cp-localstorage.service';
 import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
 import { ToastrService } from 'ngx-toastr';
+import { CpBaseComponent } from '../../common/cp-base/cp-base.component';
 
 @Component({
 	selector: 'm-login',
@@ -29,7 +30,7 @@ import { ToastrService } from 'ngx-toastr';
 	styleUrls: ['./login.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy {
 
 	@HostBinding('class') classes: string = 'm-login__signin';
 
@@ -42,8 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 	typePassword: string = 'password';
 
 	hide = false;
-
-	formGroup: FormGroup;
 
 	errors: any = [];
 
@@ -67,6 +66,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 		private _loading: CpLoadingService,
 		private toast: ToastrService
 	) {
+		super();
+	}
+
+	ngOnInit(): void {
+		// demo message to show
+		if (!this.authNoticeService.onNoticeChanged$.getValue()) {
+			const initialNotice = ``;
+			this.authNoticeService.setNotice(initialNotice, 'success');
+		}
 
 		this.formGroup = this.formBuilder.group({
 			email: ['lucasrest@hotmail.com', [
@@ -79,7 +87,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 				//Validators.minLength(6)
 			]]
 		});
-
 	}
 
 	changeTypePassword() {
@@ -111,27 +118,22 @@ export class LoginComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	ngOnInit(): void {
-		// demo message to show
-		if (!this.authNoticeService.onNoticeChanged$.getValue()) {
-			const initialNotice = ``;
-			this.authNoticeService.setNotice(initialNotice, 'success');
-		}
-	}
+
 
 	ngOnDestroy(): void {
 		this.authNoticeService.setNotice(null);
 	}
 
 	validate() {
+		this.authNoticeService.setNotice('');
 		if (this.formGroup.valid) {
 			return true;
 		}
 
 		this.errors = [];
 
-		let emailErrors = this.formGroup.get('email').errors;
-		let passwordErrors = this.formGroup.get('password').errors;
+		let emailErrors = this.getFieldErrors('email');
+		let passwordErrors = this.getFieldErrors('password');
 		if (emailErrors) {
 			if (emailErrors.email) {
 				this.errors.push(this.translate.instant('AUTH.VALIDATION.INVALID', { name: this.translate.instant('AUTH.INPUT.EMAIL') }));
@@ -155,7 +157,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 		if (this.errors.length > 0) {
 			this.authNoticeService.setNotice(this.errors.join('<br/>'), 'error');
 			this.spinner.active = false;
-		}
+		} 
 
 		return false;
 	}

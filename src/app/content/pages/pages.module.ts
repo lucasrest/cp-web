@@ -17,6 +17,7 @@ import { IngredientComponent } from './business/ingredient/ingredient/ingredient
 import { IngredientsComponent } from './business/ingredient/ingredients/ingredients.component';
 import { MatListModule, MatCardModule, MatDividerModule } from '@angular/material';
 import { BusinessServiceModule } from '../../core/services/business/business-service.module';
+import { CpBaseComponent } from './common/cp-base/cp-base.component';
 
 @NgModule({
 	declarations: [
@@ -26,6 +27,7 @@ import { BusinessServiceModule } from '../../core/services/business/business-ser
 		InnerComponent,
 		IngredientComponent,
 		IngredientsComponent,
+		CpBaseComponent,
 	],
 	imports: [
 		CommonModule,
