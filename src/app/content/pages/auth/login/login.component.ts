@@ -20,6 +20,8 @@ import { AuthNoticeService } from '../../../../core/auth/auth-notice.service';
 import { AuthService } from '../../../../core/auth/auth.service';
 import { ROTAS } from '../../../../core/constants/rotas';
 import { CPLocalStorageService } from '../../../../core/services/common/cp-localstorage.service';
+import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'm-login',
@@ -58,6 +60,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 		private authService: AuthService,
 		private storageService: CPLocalStorageService,
 		private formBuilder: FormBuilder,
+		private _loading: CpLoadingService,
+		private _toast: ToastrService
 	) {
 
 		this.formGroup = this.formBuilder.group({
@@ -76,15 +80,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 	login() {
 		this.spinner.active = true;
+		this._loading.show();
 		if (this.validate()) {
 			this.authService.authenticate(this.formGroup.value)
 				.subscribe((res) => {
 					this.storageService.setToken(res.data);
 					this.router.navigate([ROTAS.HOME]);
 					this.spinner.active = false;
+					this._loading.hide();
 					this.cdr.detectChanges();
 				}, err => {
 					this.spinner.active = false;
+					this._loading.hide();
+					this._toast.error(err.error);
 					this.authNoticeService.setNotice(err.error, 'error');
 					this.cdr.detectChanges();
 				});

@@ -21,7 +21,7 @@ import 'hammerjs';
 import { CoreModule } from './core/core.module';
 import { MetronicServiceModule } from './core/metronic/services/metronic-service.module';
 
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -40,9 +40,10 @@ import { MetronicServiceModule } from './core/metronic/services/metronic-service
 		NgbModule.forRoot(),
 		TranslateModule.forRoot(),
 		MatProgressSpinnerModule,
+		ToastrModule.forRoot()
 	],
 	providers: [
-		
+
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,3 +1,5 @@
+import { CPCommonComponentsModule } from './components/common/cp-common-components.module';
+import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '../layout/layout.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +15,7 @@ import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { InnerComponent } from './components/inner/inner.component';
 import { IngredientComponent } from './business/ingredient/ingredient/ingredient.component';
 import { IngredientsComponent } from './business/ingredient/ingredients/ingredients.component';
+import { MatListModule, MatCardModule, MatDividerModule } from '@angular/material';
 
 @NgModule({
 	declarations: [
@@ -32,6 +35,11 @@ import { IngredientsComponent } from './business/ingredient/ingredients/ingredie
 		LayoutModule,
 		PartialsModule,
 		AngularEditorModule,
+		MatListModule,
+		MatCardModule,
+		MatDividerModule,
+		MatIconModule,
+		CPCommonComponentsModule
 	],
 	providers: []
 })

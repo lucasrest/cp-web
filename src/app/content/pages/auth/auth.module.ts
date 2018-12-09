@@ -1,3 +1,4 @@
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
@@ -15,6 +16,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerButtonModule } from '../../partials/content/general/spinner-button/spinner-button.module';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
+import { CPCommonComponentsModule } from '../components/common/cp-common-components.module';
 
 @NgModule({
 	imports: [
@@ -32,7 +34,8 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 				path: '',
 				component: AuthComponent
 			}
-		])
+		]),
+		CPCommonComponentsModule
 	],
 	providers: [],
 	declarations: [
