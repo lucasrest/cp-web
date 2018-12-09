@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 	public loading = false;
 
+	typePassword: string = 'password';
+
+	hide = false;
+
 	formGroup: FormGroup;
 
 	errors: any = [];
@@ -72,6 +76,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 			]]
 		});
 
+	}
+
+	changeTypePassword() {
+		if (this.hide) {
+			this.typePassword = 'text';
+		} else {
+			this.typePassword = 'password';
+		}
 	}
 
 	login() {

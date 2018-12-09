@@ -20,6 +20,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import 'hammerjs';
 import { CoreModule } from './core/core.module';
 import { MetronicServiceModule } from './core/metronic/services/metronic-service.module';
+import { RequestInterceptor, RequestInterceptorProvider } from './core/interceptors/request.interceptor';
 
 
 
@@ -42,7 +43,7 @@ import { MetronicServiceModule } from './core/metronic/services/metronic-service
 		MatProgressSpinnerModule,
 	],
 	providers: [
-		
+		RequestInterceptorProvider
 	],
 	bootstrap: [AppComponent]
 })

@@ -10,7 +10,8 @@ import {
 	MatButtonModule,
 	MatFormFieldModule,
 	MatInputModule,
-	MatCheckboxModule
+	MatCheckboxModule,
+	MatIconModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SpinnerButtonModule } from '../../partials/content/general/spinner-button/spinner-button.module';
@@ -24,6 +25,7 @@ import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 		MatInputModule,
 		MatFormFieldModule,
 		MatCheckboxModule,
+		MatIconModule,
 		ReactiveFormsModule,
 		TranslateModule.forChild(),
 		SpinnerButtonModule,
