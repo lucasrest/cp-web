@@ -9,6 +9,15 @@ export const locale = {
 			DASHBOARD: 'Dashboard',
 			INGREDIENTS: 'Ingredientes'
 		},
+		INGREDIENT: {
+			TITLE: 'Cadastro de Ingrediente',
+			INPUT: {
+				NAME: 'Nome',
+				CATEGORY: 'Categoria',
+				UNIT: 'Medida',
+				DESCRIPTION: 'Descrição'
+			}
+		},
 		AUTH: {
 			GENERAL: {
 				OR: 'Ou',
