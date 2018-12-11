@@ -1,41 +1,58 @@
-<!--begin::Signin-->
-<!--<div class="m-login__signin">-->
-<div>
-  <h3 translate>{{'INGREDIENT.TITLE'}}</h3>
+<div class="m-portlet m-portlet--full-height m-portlet--tabs">
+	<div class="m-portlet__body">
+		<div class="form-group m-form__group row">
+			<h3 class="m-form__section" translate>{{'INGREDIENT.TITLE'}}</h3>
+		</div>
+		<form class="m-form m-form--fit m-form--label-align-right" name="form"
+				[formGroup]="formGroup" novalidate>
+			<div class="m-portlet__body">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.NAME' }}</label>
+							<input class="form-control m-input cp-input" name="name" placeholder="{{'INGREDIENT.INPUT.NAME' | translate }}" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.CATEGORY' }}</label>
+							<select class="form-control cp-input" name="category">
+								<option *ngFor="let category of categories" value="category.id">{{ category.name }}</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.UNIT' }}</label>
+							<select class="form-control cp-input" name="unit">
+								<option *ngFor="let unit of units" value="unit.id">{{ unit.name }}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.DESCRIPTION' }}</label>
+							<textarea class="form-control cp-input" rows="3" placeholder="{{'INGREDIENT.INPUT.DESCRIPTION' | translate }}"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--TODO: Outros campos(Endereço, ocupação, etc) - Rever depois-->
+			<div class="m-portlet__foot m-portlet__foot--fit">
+				<div class="m-form__actions">
+					<div class="row">
+						<div class="col-2"></div>
+						<div class="col-7">
+							<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
+							<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Save changes</button>&nbsp;&nbsp;
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>
-
-<!--begin::Form-->
-<form class="m-form" name="form" (ngSubmit)="login()" [formGroup]="formGroup" novalidate>
-  <div class="form-group">
-    <mat-form-field>
-      <mat-label translate>{{ 'INGREDIENT.INPUT.NAME' }}</mat-label>
-      <input matInput name="name" placeholder="{{'AUTH.INPUT.NAME' | translate }}" autocomplete="off">
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field>
-      <mat-label translate> {{ 'INGREDIENT.INPUT.CATEGORY' }}</mat-label>
-      <mat-select placeholder="{{'INGREDIENT.INPUT.CATEGORY' | translate }}">
-        <mat-option *ngFor="let category of categories" value="category.id">{{ category.name }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    
-  </div>
-  <div class="form-group">
-    <mat-form-field>
-      <mat-label translate> {{ 'INGREDIENT.INPUT.UNIT' }}</mat-label>
-      <mat-select placeholder="{{'INGREDIENT.INPUT.UNIT' | translate }}">
-        <mat-option *ngFor="let unit of units" value="unit.id">{{ unit.name }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-
-</form>
-<!--end::Form-->
-
-
-<!--end::Action-->
-
-
-<!--</div>-->
-<!--end::Signin-->

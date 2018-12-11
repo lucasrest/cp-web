@@ -9,7 +9,7 @@ const routes: Routes = [
                 path: '', loadChildren: '../../pages/components/dashboard/dashboard.module#DashboardModule'
 			},
 			{
-				path: 'profile',
+				path: 'perfil',
 				component: CPProfileComponent
 			},
             {
