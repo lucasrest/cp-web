@@ -16,7 +16,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit {
   units: Unit[] = [
     { id: 1, name: 'unit 1'},
     { id: 2, name: 'unit 2'}
-  ]; 
+  ];
 
   categories: IngredientCategory[] = [
     { id: 1, name: 'category 1'},
