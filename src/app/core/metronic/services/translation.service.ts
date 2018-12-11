@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 
+export const DEFAULT_LANGUAGE = 'en';
+
 export interface Locale {
 	lang: string;
 	data: Object;
@@ -15,10 +17,10 @@ export class TranslationService {
 
 	constructor(private translate: TranslateService) {
 		// add new langIds to the list
-		this.translate.addLangs(['pt']);
+		this.translate.addLangs([DEFAULT_LANGUAGE]);
 
 		// this language will be used as a fallback when a translation isn't found in the current language
-		this.translate.setDefaultLang('pt');
+		this.translate.setDefaultLang(DEFAULT_LANGUAGE);
 	}
 
 	public loadTranslations(...args: Locale[]): void {
@@ -43,6 +45,22 @@ export class TranslationService {
 			localStorage.setItem('language', lang);
 		}
 	}
+
+	setDefaultLanguage() {
+		let browserLanguage = this.translate.getBrowserLang() || DEFAULT_LANGUAGE;
+		this.setLanguage(this.getLanguage(browserLanguage.toLowerCase()));  
+	}
+
+	getLanguage(lang) : string {
+		let _lang: string = DEFAULT_LANGUAGE;
+		let languages: string[] = ['en', 'pt', 'es'];
+	
+		if(languages.includes(lang)) {
+		  _lang = lang;
+		}
+	
+		return _lang;
+	  }
 
 	public getSelectedLanguage(): Observable<any> {
 		return of(localStorage.getItem('language') || this.translate.getDefaultLang());

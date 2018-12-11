@@ -42,6 +42,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 		private pageConfigService: PageConfigService,
 		private splashScreenService: SplashScreenService
 	) {
+		
+		
+
 		// subscribe to class update event
 		this.classInitService.onClassesUpdated$.subscribe(classes => {
 			// get body class array, join as string classes and pass to host binding class
@@ -66,6 +69,8 @@ export class AppComponent implements AfterViewInit, OnInit {
 		// register translations
 		this.translationService.loadTranslations(enLang, esLang, ptLang);
 
+		this.translationService.setDefaultLanguage();
+
 		// override config by router change from pages config
 		this.router.events
 			.pipe(filter(event => event instanceof NavigationEnd))
@@ -81,4 +86,6 @@ export class AppComponent implements AfterViewInit, OnInit {
 			this.splashScreenService.init(this.splashScreen.nativeElement);
 		}
 	}
+
+	
 }

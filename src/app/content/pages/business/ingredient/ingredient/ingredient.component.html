@@ -1,3 +1,41 @@
-<p>
-  ingredient works!
-</p>
+<!--begin::Signin-->
+<!--<div class="m-login__signin">-->
+<div>
+  <h3 translate>{{'INGREDIENT.TITLE'}}</h3>
+</div>
+
+<!--begin::Form-->
+<form class="m-form" name="form" (ngSubmit)="login()" [formGroup]="formGroup" novalidate>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label translate>{{ 'INGREDIENT.INPUT.NAME' }}</mat-label>
+      <input matInput name="name" placeholder="{{'AUTH.INPUT.NAME' | translate }}" autocomplete="off">
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label translate> {{ 'INGREDIENT.INPUT.CATEGORY' }}</mat-label>
+      <mat-select placeholder="{{'INGREDIENT.INPUT.CATEGORY' | translate }}">
+        <mat-option *ngFor="let category of categories" value="category.id">{{ category.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label translate> {{ 'INGREDIENT.INPUT.UNIT' }}</mat-label>
+      <mat-select placeholder="{{'INGREDIENT.INPUT.UNIT' | translate }}">
+        <mat-option *ngFor="let unit of units" value="unit.id">{{ unit.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</form>
+<!--end::Form-->
+
+
+<!--end::Action-->
+
+
+<!--</div>-->
+<!--end::Signin-->
