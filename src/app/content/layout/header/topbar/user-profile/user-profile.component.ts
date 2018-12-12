@@ -1,7 +1,8 @@
-import { AuthenticationService } from '../../../../../core/auth/authentication.service';
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { CPLocalStorageService } from '../../../../../core/services/common/cp-localstorage.service';
+import swal from 'sweetalert2';
 
 @Component({
 	selector: 'm-user-profile',
@@ -15,15 +16,16 @@ export class UserProfileComponent implements OnInit {
 
 	@HostBinding('attr.m-dropdown-toggle') attrDropdownToggle = 'click';
 
-	@Input() avatar: string = './assets/app/media/img/users/user4.jpg';
+	//TODO: Buscar foto do usuário
+	@Input() avatar: string = 'http://placehold.it/100x100';
 	@Input() avatarBg: SafeStyle = '';
 
 	@ViewChild('mProfileDropdown') mProfileDropdown: ElementRef;
 
 	constructor (
-		private router: Router,
-		private authService: AuthenticationService,
-		private sanitizer: DomSanitizer
+		private _router: Router,
+		private sanitizer: DomSanitizer,
+		private _localStorage: CPLocalStorageService
 	) {}
 
 	ngOnInit (): void {
@@ -33,6 +35,21 @@ export class UserProfileComponent implements OnInit {
 	}
 
 	public logout () {
-		this.authService.logout(true);
+		swal('Confirmação', 'Você tem certeza?', 'question')
+		swal({
+			title: '',
+			text: "Você tem certeza?",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Sim',
+			cancelButtonText: 'Não'
+		  }).then((result) => {
+			if (result.value) {
+				this._localStorage.clearToken();
+				this._router.navigate(['/app/login']);
+			}
+		  })
 	}
 }
