@@ -21,6 +21,16 @@ export class APIClientService {
         );
     }
 
+    put(uri: string, body: any, headers?: HttpHeaders) {
+        return this._httpClient.put<ApiResponse>(
+            this.getUrl(uri),
+            body,
+            {
+                headers
+            }
+        );
+    }
+
     get(uri: string, headers?: HttpHeaders) {
         return this._httpClient.get<ApiResponse>(
             this.getUrl(uri),
