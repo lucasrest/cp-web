@@ -1,3 +1,4 @@
+import { CPCommonComponentsModule } from './../../../components/common/cp-common-components.module';
 import { NgModule } from "@angular/core";
 import { IngredientComponent } from "./ingredient.component";
 import { MetronicCoreModule } from "../../../../../core/metronic/metronic-core.module";
@@ -37,7 +38,8 @@ const routes: Routes = [
         ReactiveFormsModule,
         CPCommonComponentsModule,
         TranslateModule.forChild(),
-        RouterModule.forChild(routes)
+		RouterModule.forChild(routes),
+		CPCommonComponentsModule
     ],
     declarations: [
         IngredientComponent

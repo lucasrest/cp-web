@@ -1,3 +1,4 @@
+import { UnitService } from './unit.service';
 import { IngredientService } from './ingredient.service';
 import { NgModule } from "@angular/core";
 
@@ -5,7 +6,8 @@ import { NgModule } from "@angular/core";
   imports: [
   ],
   providers: [
-    IngredientService
+	IngredientService,
+	UnitService
   ]
 })
 export class BusinessServiceModule { }
