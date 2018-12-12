@@ -14,8 +14,16 @@ export class IngredientService {
 	) {
 	}
 
+	public insert(ingredient: Ingredient): Observable<ApiResponse> {
+		return this._apiService.post(ENDPOINTS.BUSINESS.INGREDIENTS, ingredient);
+	}
+
 	public get(): Observable<ApiResponse> {
 		return this._apiService.get(ENDPOINTS.BUSINESS.INGREDIENTS);
+	}
+
+	public getCategoriesReduced(): Observable<ApiResponse> {
+		return this._apiService.get(ENDPOINTS.BUSINESS.INGREDIENT_CATEGORIES_REDUCED)
 	}
 
 }

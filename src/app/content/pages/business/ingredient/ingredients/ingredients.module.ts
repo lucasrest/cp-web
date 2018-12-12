@@ -7,6 +7,7 @@ import { PartialsModule } from "../../../../partials/partials.module";
 import { AngularEditorModule } from "@kolkov/angular-editor";
 import { MatListModule, MatCardModule, MatIconModule, MatDividerModule } from "@angular/material";
 import { Routes, RouterModule } from "@angular/router";
+import { CPCommonComponentsModule } from "../../../components/common/cp-common-components.module";
 
 const routes: Routes = [
     {
@@ -26,7 +27,8 @@ const routes: Routes = [
         MatCardModule,
         MatDividerModule,
         MatIconModule,
-        RouterModule.forChild(routes)
+		RouterModule.forChild(routes),
+		CPCommonComponentsModule
     ],
     declarations: [
         IngredientsComponent

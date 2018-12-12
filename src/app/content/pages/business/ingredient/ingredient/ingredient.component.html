@@ -1,3 +1,4 @@
+<cp-loading></cp-loading>
 <div class="m-portlet m-portlet--full-height m-portlet--tabs">
 	<div class="m-portlet__body">
 		<div class="form-group m-form__group row">
@@ -10,7 +11,8 @@
 					<div class="col-sm-12">
 						<div class="form-group m-form__group">
 							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.NAME' }}</label>
-							<input class="form-control m-input cp-input" name="name" placeholder="{{'INGREDIENT.INPUT.NAME' | translate }}" type="text">
+							<input class="form-control m-input cp-input" name="name" formControlName="name"
+								placeholder="{{'INGREDIENT.INPUT.NAME' | translate }}" type="text">
 						</div>
 					</div>
 				</div>
@@ -18,16 +20,18 @@
 					<div class="col-sm-6">
 						<div class="form-group m-form__group">
 							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.CATEGORY' }}</label>
-							<select class="form-control cp-input" name="category">
-								<option *ngFor="let category of categories" value="category.id">{{ category.name }}</option>
+							<select class="form-control cp-input" name="category" formControlName="ingredientCategory">
+								<option value="null" [disabled]="true">Selecione uma opção</option>
+								<option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group m-form__group">
 							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.UNIT' }}</label>
-							<select class="form-control cp-input" name="unit">
-								<option *ngFor="let unit of units" value="unit.id">{{ unit.name }}</option>
+							<select class="form-control cp-input" name="unit" formControlName="unit">
+								<option value="null" [disabled]="true">Selecione uma opção</option>
+								<option *ngFor="let unit of units" [ngValue]="unit">{{ unit.name }}</option>
 							</select>
 						</div>
 					</div>
@@ -36,19 +40,19 @@
 					<div class="col-sm-12">
 						<div class="form-group m-form__group">
 							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.DESCRIPTION' }}</label>
-							<textarea class="form-control cp-input" rows="3" placeholder="{{'INGREDIENT.INPUT.DESCRIPTION' | translate }}"></textarea>
+							<textarea class="form-control cp-input" rows="3" formControlName="description"
+									placeholder="{{'INGREDIENT.INPUT.DESCRIPTION' | translate }}"></textarea>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!--TODO: Outros campos(Endereço, ocupação, etc) - Rever depois-->
 			<div class="m-portlet__foot m-portlet__foot--fit">
 				<div class="m-form__actions">
 					<div class="row">
 						<div class="col-2"></div>
-						<div class="col-7">
-							<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
-							<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Save changes</button>&nbsp;&nbsp;
+						<div class="col-7"><!--TODO: Tradução-->
+							<button type="button" class="btn btn-secondary m-btn m-btn--air m-btn--custom" (click)="cancel()">Voltar</button>
+							<button type="button" class="btn btn-accent m-btn m-btn--air m-btn--custom" (click)="save()">Salvar</button>&nbsp;&nbsp;
 						</div>
 					</div>
 				</div>
