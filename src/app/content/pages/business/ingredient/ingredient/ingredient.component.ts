@@ -58,12 +58,12 @@ export class IngredientComponent extends CpBaseComponent implements OnInit {
 	this.formGroup.value.user = this._localStorage.getToken().user;
 	this._service.insert(this.formGroup.value).subscribe(
 		apiResponse => {
-			this._loading.show();
+			this._loading.hide();
 			this._toast.success('Feito!');
 			this._router.navigate(['/app/ingredientes']);
 		},
 		error => {
-			this._loading.show();
+			this._loading.hide();
 		}
 	)
   }
