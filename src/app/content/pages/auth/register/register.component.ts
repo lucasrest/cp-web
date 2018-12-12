@@ -17,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../../../core/auth/user.service';
 import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
 import { ToastrService } from 'ngx-toastr';
-import { ROTAS } from '../../../../core/constants/rotas';
+import { CPROUTES } from '../../../../core/constants/cp-routes';
 import { CpBaseComponent } from '../../common/cp-base/cp-base.component';
 import {  Router } from '@angular/router';
 
@@ -93,7 +93,7 @@ export class RegisterComponent extends CpBaseComponent implements OnInit {
 					this.cpLoading.hide();
 					this.spinner.active = false;
 					this.cdr.detectChanges();
-					this.router.navigate([ROTAS.HOME]);
+					this.router.navigate([CPROUTES.HOME]);
 				}, err => {
 					this.cpLoading.hide();
 					this.spinner.active = false;

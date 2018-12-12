@@ -1,0 +1,17 @@
+const _CP_ROUTES = {
+    
+    APP: '/app',
+
+    LANDPAGE: ''
+}
+
+export const CPROUTES = {
+
+    HOME: _CP_ROUTES.APP,
+
+    LOGIN: `${_CP_ROUTES.APP}/login`,
+
+    REGISTER_USER:  `${_CP_ROUTES.APP}/user`,
+
+    INGREDIENTS:  `${_CP_ROUTES.APP}/ingredientes`
+}

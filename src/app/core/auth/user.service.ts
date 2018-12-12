@@ -14,6 +14,10 @@ export class UserService {
     return this._apiClient.post(ENDPOINTS.SECURITY.USER, user);
   }
 
+  update(user: User) {
+    return this._apiClient.put(ENDPOINTS.SECURITY.USER, user);
+  }
+
   findByIdReduced(id: number) {
     return this._apiClient.get(`${ENDPOINTS.SECURITY.USER}/reduced/${id}`);
   }

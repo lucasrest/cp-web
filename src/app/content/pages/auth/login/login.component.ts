@@ -18,7 +18,7 @@ import { SpinnerButtonOptions } from '../../../partials/content/general/spinner-
 import { AuthenticationService } from '../../../../core/auth/authentication.service';
 import { AuthNoticeService } from '../../../../core/auth/auth-notice.service';
 import { AuthService } from '../../../../core/auth/auth.service';
-import { ROTAS } from '../../../../core/constants/rotas';
+import { CPROUTES } from '../../../../core/constants/cp-routes';
 import { CPLocalStorageService } from '../../../../core/services/common/cp-localstorage.service';
 import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
 import { CpBaseComponent } from '../../common/cp-base/cp-base.component';
@@ -102,7 +102,7 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 			this.authService.authenticate(this.formGroup.value)
 				.subscribe((res) => {
 					this.storageService.setToken(res.data);
-					this.router.navigate([ROTAS.HOME]);
+					this.router.navigate([CPROUTES.HOME]);
 					this.spinner.active = false;
 					this._loading.hide();
 					this.cdr.detectChanges();
