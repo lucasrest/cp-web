@@ -10,7 +10,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { CommonServiceModule } from "../../../../../core/services/common/common-service.module";
 import { ReactiveFormsModule } from "@angular/forms";
-import { CPCommonComponentsModule } from "../../../components/common/cp-common-components.module";
 import { TranslateModule } from "@ngx-translate/core";
 
 const routes: Routes = [
@@ -38,8 +37,7 @@ const routes: Routes = [
         ReactiveFormsModule,
         CPCommonComponentsModule,
         TranslateModule.forChild(),
-		RouterModule.forChild(routes),
-		CPCommonComponentsModule
+		RouterModule.forChild(routes)
     ],
     declarations: [
         IngredientComponent
