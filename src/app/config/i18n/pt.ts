@@ -18,6 +18,22 @@ export const locale = {
 				DESCRIPTION: 'Descrição'
 			}
 		},
+		PROFILE: {
+			TITLE: 'Seu perfil',
+			USER: {
+				DETAIL: 'Detalhes Pessoais',
+				NAME: 'Nome Completo',
+				EMAIL: 'Email'
+			},
+			AMOUNT: {
+				INGREDIENT: 'Ingredientes',
+				RECIPE: 'Receitas',
+				MENU: 'Cardápios'
+
+			},
+			BTN_SAVE_CHANGES: 'Salvar Alterações',
+			BTN_CANCEL: 'Cancelar'
+		},
 		AUTH: {
 			GENERAL: {
 				OR: 'Ou',

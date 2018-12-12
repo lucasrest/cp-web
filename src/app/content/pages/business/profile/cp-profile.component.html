@@ -4,7 +4,7 @@
 			<div class="m-portlet__body">
 				<div class="m-card-profile">
 					<div class="m-card-profile__title m--hide">
-						Your Profile
+						{{ 'PROFILE.TITLE' }}
 					</div>
 					<div class="m-card-profile__pic">
 						<div class="m-card-profile__pic-wrapper">
@@ -12,8 +12,8 @@
 						</div>
 					</div>
 					<div class="m-card-profile__details">
-						<span class="m-card-profile__name">Nome placeholder</span>
-						<a href="" class="m-card-profile__email m-link">Email placeholder</a>
+						<span class="m-card-profile__name">{{ user?.name }}</span>
+						<a href="" class="m-card-profile__email m-link">{{ user?.email }}</a>
 					</div>
 				</div>
 				<div class="m-portlet__body-separator"></div>
@@ -21,30 +21,30 @@
 					<div class="m-widget1__item">
 						<div class="row m-row--no-padding align-items-center">
 							<div class="col">
-								<h3 class="m-widget1__title">Ingredientes</h3>
+								<h3 class="m-widget1__title" translate>{{ 'PROFILE.AMOUNT.INGREDIENT' }}</h3>
 							</div>
 							<div class="col m--align-right">
-								<span class="m-widget1__number m--font-brand">340</span>
+								<span class="m-widget1__number m--font-brand">{{ user?.amountOfIngredients }}</span>
 							</div>
 						</div>
 					</div>
 					<div class="m-widget1__item">
 						<div class="row m-row--no-padding align-items-center">
 							<div class="col">
-								<h3 class="m-widget1__title">Receitas</h3>
+								<h3 class="m-widget1__title" translate>{{ 'PROFILE.AMOUNT.RECIPE' }}</h3>
 							</div>
 							<div class="col m--align-right">
-								<span class="m-widget1__number m--font-danger">3</span>
+								<span class="m-widget1__number m--font-danger">{{ user?.amountOfRecipes }}</span>
 							</div>
 						</div>
 					</div>
 					<div class="m-widget1__item">
 						<div class="row m-row--no-padding align-items-center">
 							<div class="col">
-								<h3 class="m-widget1__title">Cardápios</h3>
+								<h3 class="m-widget1__title" translate>{{ 'PROFILE.AMOUNT.MENU' }}</h3>
 							</div>
 							<div class="col m--align-right">
-								<span class="m-widget1__number m--font-success">1</span>
+								<span class="m-widget1__number m--font-success"> {{ user?.amountOfMenus}}</span>
 							</div>
 						</div>
 					</div>
@@ -54,81 +54,25 @@
 	</div>
 	<div class="col-xl-9 col-lg-8">
 		<div class="m-portlet m-portlet--full-height m-portlet--tabs  ">
-			<div class="m-portlet__head">
-				<div class="m-portlet__head-tools">
-				</div>
-				<div class="m-portlet__head-tools">
-					<ul class="m-portlet__nav">
-						<li class="m-portlet__nav-item m-portlet__nav-item--last">
-							<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
-								<a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-									<i class="la la-gear"></i>
-								</a>
-								<div class="m-dropdown__wrapper" style="z-index: 101;">
-									<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 21.5px;"></span>
-									<div class="m-dropdown__inner">
-										<div class="m-dropdown__body">
-											<div class="m-dropdown__content">
-												<ul class="m-nav">
-													<li class="m-nav__section m-nav__section--first">
-														<span class="m-nav__section-text">Ações</span>
-													</li>
-													<li class="m-nav__item">
-														<a href="" class="m-nav__link">
-															<i class="m-nav__link-icon flaticon-share"></i>
-															<span class="m-nav__link-text">Editar Perfil</span>
-														</a>
-													</li>
-													<li class="m-nav__section">
-														<span class="m-nav__section-text">Links Úteis</span>
-													</li>
-													<li class="m-nav__item">
-														<a href="" class="m-nav__link">
-															<i class="m-nav__link-icon flaticon-info"></i>
-															<span class="m-nav__link-text">FAQ</span>
-														</a>
-													</li>
-													<li class="m-nav__item">
-														<a href="" class="m-nav__link">
-															<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-															<span class="m-nav__link-text">Suporte</span>
-														</a>
-													</li>
-													<li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-													<li class="m-nav__item m--hide">
-														<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Submit</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+
 			<div class="m-portlet__body">
-				<form class="m-form m-form--fit m-form--label-align-right" name="form"
-						[formGroup]="formGroup" novalidate>
+				<form class="m-form m-form--fit m-form--label-align-right" name="form" [formGroup]="formGroup" novalidate>
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
 							<div class="col-10 ml-auto">
-								<h3 class="m-form__section">1. Detalhes Pessoais</h3>
+								<h3 class="m-form__section" translate>{{ 'PROFILE.USER.DETAIL' }}</h3>
 							</div>
 						</div>
 						<div class="form-group m-form__group row">
 							<mat-form-field class="full-width">
-								<mat-label translate>Nome Completo</mat-label>
-								<input matInput type="text" name="name" autocomplete="off"
-									formControlName="name">
+								<mat-label translate>{{ 'PROFILE.USER.NAME' }}</mat-label>
+								<input matInput type="text" name="name" autocomplete="off" formControlName="name">
 							</mat-form-field>
 						</div>
 						<div class="form-group m-form__group row">
 							<mat-form-field class="full-width">
-								<mat-label translate>Email</mat-label>
-								<input matInput type="text" name="email" autocomplete="off"
-									formControlName="email">
+								<mat-label translate>{{ 'PROFILE.USER.EMAIL' }}</mat-label>
+								<input matInput type="text" name="email" autocomplete="off" formControlName="email">
 							</mat-form-field>
 						</div>
 					</div>
@@ -138,9 +82,10 @@
 							<div class="row">
 								<div class="col-2"></div>
 								<div class="col-7">
-									<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">Save changes</button>&nbsp;&nbsp;
+									<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom" [disabled]="formGroup.pristine && formGroup.dirty"
+									 translate>{{ 'PROFILE.BTN_SAVE_CHANGES' }}</button>&nbsp;&nbsp;
 
-									<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">Cancel</button>
+									<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom" translate>{{ 'PROFILE.BTN_CANCEL'}}</button>
 								</div>
 							</div>
 						</div>
