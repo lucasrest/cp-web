@@ -61,7 +61,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				this._loading.show();
 				this._service.getById(id).subscribe(
 					apiResponse => {
-						this.ingredient = apiResponse.data[0];
+						this.ingredient = apiResponse.data;
 						this.formGroup.setValue({
 							name: this.ingredient.name,
 							ingredientCategory: this.ingredient.ingredientCategory,
@@ -83,10 +83,10 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 	}
 
 	save() {
-		this._loading.show();
-		this.formGroup.value.user = this._localStorage.getToken().user;
+        this._loading.show();
+		this.formGroup.value.user = this._localStorage.getLoggedUser();
 		if(this.ingredient && this.ingredient.id) {
-			this.formGroup.value.id = this.ingredient.id;
+            this.formGroup.value.id = this.ingredient.id;
 			this._service.update(this.formGroup.value).subscribe(
 				apiResponse => {
 					this._loading.hide();
@@ -132,6 +132,6 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 			},
 			error => {}
 		)
-	}
+    }
 
 }
