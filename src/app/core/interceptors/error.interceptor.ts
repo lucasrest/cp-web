@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from "rxjs";
 import { Router } from "@angular/router";
 import { ENDPOINTS } from "../constants/endpoints";
-import { ROTAS } from "../constants/rotas";
+import { CPROUTES } from "../constants/cp-routes";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -42,7 +42,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     redirectToLoginIfDeniedAccess(status) {
         if (status == HttpStatusCode.UNAUTHORIZED ||
             status == HttpStatusCode.FORBIDDEN) {
-            this.router.navigate([ROTAS.LOGIN]);
+            this.router.navigate([CPROUTES.LOGIN]);
         }
     }
 

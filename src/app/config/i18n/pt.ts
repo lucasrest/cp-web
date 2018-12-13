@@ -9,6 +9,10 @@ export const locale = {
 			DASHBOARD: 'Dashboard',
 			INGREDIENTS: 'Ingredientes'
 		},
+		INPUTS: {
+			REGION: 'Estado',
+			FILTERBYSTATE: 'Filtrar Ingredientes por Estado'
+		},
 		INGREDIENT: {
 			TITLE: 'Cadastro de Ingrediente',
 			INPUT: {

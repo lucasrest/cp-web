@@ -1,13 +1,16 @@
-import { UnitService } from './unit.service';
-import { IngredientService } from './ingredient.service';
 import { NgModule } from "@angular/core";
+
+import { IngredientService } from './ingredient.service';
+import { RegionService } from './region.service';
+import { UnitService } from './unit.service';
 
 @NgModule({
   imports: [
   ],
   providers: [
-	IngredientService,
-	UnitService
+    IngredientService,
+    UnitService,
+    RegionService
   ]
 })
 export class BusinessServiceModule { }

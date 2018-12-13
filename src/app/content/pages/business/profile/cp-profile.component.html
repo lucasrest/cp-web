@@ -75,6 +75,18 @@
 								<input matInput type="text" name="email" autocomplete="off" formControlName="email">
 							</mat-form-field>
 						</div>
+
+						<div class="form-group m-form__group row">
+							<div class="full-width">
+								<label class="col-form-label" translate>{{ 'INPUTS.REGION' }}</label>
+								<select class="form-control cp-input" name="region" formControlName="region">
+									<option value="null" [disabled]="true">Selecione uma opção</option>
+									<option *ngFor="let region of regions" [ngValue]="region">{{ region.state }}</option>
+								</select>
+							</div>
+							<mat-checkbox class="full-width" formControlName="filterByState"> {{ 'INPUTS.FILTERBYSTATE' | translate }} </mat-checkbox>
+						</div>
+
 					</div>
 					<!--TODO: Outros campos(Endereço, ocupação, etc) - Rever depois-->
 					<div class="m-portlet__foot m-portlet__foot--fit">
@@ -82,10 +94,13 @@
 							<div class="row">
 								<div class="col-2"></div>
 								<div class="col-7">
-									<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom" [disabled]="formGroup.pristine && formGroup.dirty"
-									 translate>{{ 'PROFILE.BTN_SAVE_CHANGES' }}</button>&nbsp;&nbsp;
+									<button class="btn btn-accent m-btn m-btn--air m-btn--custom" [disabled]="!formGroup.valid || formGroup.pristine"
+									 (click)="saveModifications()" translate>{{
+										'PROFILE.BTN_SAVE_CHANGES' }}</button>&nbsp;&nbsp;
 
-									<button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom" translate>{{ 'PROFILE.BTN_CANCEL'}}</button>
+									<button class="btn btn-secondary m-btn m-btn--air m-btn--custom" [disabled]="formGroup.pristine" (click)="cancelModifications()"
+									 translate>{{
+										'PROFILE.BTN_CANCEL'}}</button>
 								</div>
 							</div>
 						</div>
