@@ -6,7 +6,7 @@
 	</a>
 </div>
 <mat-nav-list>
-	<a class="list-item" mat-list-item href="" *ngFor="let ingredient of ingredients">
+	<a class="list-item" mat-list-item href="/app/ingrediente/{{ingredient.id}}" *ngFor="let ingredient of ingredients">
 		{{ingredient.name}}
 		<mat-icon matListIcon class="list-icon-right" [inline]="true">
 			keyboard_arrow_right

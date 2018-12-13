@@ -18,8 +18,16 @@ export class IngredientService {
 		return this._apiService.post(ENDPOINTS.BUSINESS.INGREDIENTS, ingredient);
 	}
 
+	public update(ingredient: Ingredient): Observable<ApiResponse> {
+		return this._apiService.put(ENDPOINTS.BUSINESS.INGREDIENTS, ingredient);
+	}
+
 	public get(): Observable<ApiResponse> {
 		return this._apiService.get(ENDPOINTS.BUSINESS.INGREDIENTS);
+	}
+
+	public getById(id: number): Observable<ApiResponse> {
+		return this._apiService.get(`${ENDPOINTS.BUSINESS.INGREDIENTS}/${id}`);
 	}
 
 	public getCategoriesReduced(): Observable<ApiResponse> {

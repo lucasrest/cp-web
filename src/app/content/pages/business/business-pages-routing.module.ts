@@ -12,8 +12,11 @@ const routes: Routes = [
 				path: 'perfil',
 				component: CPProfileComponent
 			},
-            {
+			{
                 path: 'ingrediente', loadChildren: './ingredient/ingredient/ingredient.module#IngredientModule'
+            },
+            {
+                path: 'ingrediente/:id', loadChildren: './ingredient/ingredient/ingredient.module#IngredientModule'
             },
             {
                 path: 'ingredientes', loadChildren: './ingredient/ingredients/ingredients.module#IngredientsModule'

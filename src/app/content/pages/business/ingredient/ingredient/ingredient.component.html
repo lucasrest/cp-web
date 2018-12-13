@@ -21,7 +21,6 @@
 						<div class="form-group m-form__group">
 							<label class="col-form-label" translate>{{ 'INGREDIENT.INPUT.CATEGORY' }}</label>
 							<select class="form-control cp-input" name="category" formControlName="ingredientCategory">
-								<option value="null" [disabled]="true">Selecione uma opção</option>
 								<option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
 							</select>
 						</div>
