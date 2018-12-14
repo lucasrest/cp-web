@@ -35,7 +35,40 @@
 							</select>
 						</div>
 					</div>
-				</div>
+                </div>
+
+                <div formGroupName="purchasePrice">
+                    <div class="row m--margin-top-10">
+                        <div class="col-sm-12">
+                            <h5 class="text-center">Preço de Compra</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group m-form__group">
+                                <input class="form-control m-input cp-input full-width" name="price"
+                                    type="text" formControlName="price">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m--margin-top-10">
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <input class="form-control m-input cp-input" name="priceUnityQuantity"
+                                    type="number" formControlName="unityQuantity">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group m-form__group">
+                                <select [compareWith]="compareSelect" class="form-control cp-input" formControlName="unit" name="priceUnit">
+                                    <option value="null" [disabled]="true">Selecione uma opção</option>
+                                    <option *ngFor="let unit of units" [ngValue]="unit">{{ unit.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="form-group m-form__group">

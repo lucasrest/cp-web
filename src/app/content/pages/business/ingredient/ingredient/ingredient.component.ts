@@ -47,7 +47,12 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 			]],
 			ingredientCategory: [null, [
 				Validators.required
-			]],
+            ]],
+            purchasePrice: this._formBuilder.group({
+                price: [null, [Validators.required]],
+                unityQuantity: [null, [Validators.required]],
+                unit: [null, [Validators.required]]
+            }),
 			unit: [null, [
 				Validators.required
 			]],
@@ -63,10 +68,12 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				this._loading.show();
 				this._service.getById(id).subscribe(
 					apiResponse => {
-						this.ingredient = apiResponse.data;
+                        this.ingredient = apiResponse.data;
+                        let purchPrice = this.ingredient.purchasePrice
 						this.formGroup.setValue({
 							name: this.ingredient.name,
-							ingredientCategory: this.ingredient.ingredientCategory,
+                            ingredientCategory: this.ingredient.ingredientCategory,
+                            purchasePrice: {price: purchPrice.price, unityQuantity: purchPrice.unityQuantity, unit: purchPrice.unit},
 							unit: this.ingredient.unit,
 							description: this.ingredient.description
 						});
