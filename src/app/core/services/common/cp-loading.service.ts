@@ -4,7 +4,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 @Injectable()
 export class CpLoadingService {
 
-    constructor(private _spinner: NgxSpinnerService) {
+    constructor(
+        private _spinner: NgxSpinnerService) {
     }
 
     show() {

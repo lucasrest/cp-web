@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { UnitService } from './../../../../../core/services/business/unit.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Ingredient } from '../../../../../core/models/business/ingredient';
 import { CpBaseComponent } from '../../../common/cp-base/cp-base.component';
 import { Unit } from '../../../../../core/models/business/unit';
@@ -34,7 +34,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 		private _loading: CpLoadingService,
 		private _router: Router,
 		private _localStorage: CPLocalStorageService,
-		private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+		private _cdr: ChangeDetectorRef
 	) {
 		super();
 	}
@@ -72,7 +73,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 						this._loading.hide();
 					},
 					error => {
-						this._loading.hide();
+                        this._loading.hide();
+                        this._cdr.detectChanges();
 					}
 				);
 			}
@@ -95,7 +97,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 					this._router.navigate([CPROUTES.INGREDIENTS]);
 				},
 				error => {
-					this._loading.hide();
+                    this._loading.hide();
+                    this._cdr.detectChanges();
 				}
 			);
 		} else {
@@ -106,8 +109,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 					this._router.navigate([CPROUTES.INGREDIENTS]);
 				},
 				error => {
-					this._loading.hide();
-					console.log(error);
+                    this._loading.hide();
+                    this._cdr.detectChanges();
 				}
 			);
 		}
