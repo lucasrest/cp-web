@@ -36,11 +36,11 @@ export class IngredientsComponent implements OnInit {
 			});
 	}
 
-	newIngredient() {
+	new() {
 		this._router.navigate([CPROUTES.INGREDIENT])
 	}
 
-	updateIngredient(id: number) {
+	edit(id: number) {
 		this._router.navigate([CPROUTES.INGREDIENT, id])
 	}
 
