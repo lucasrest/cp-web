@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { IngredientService } from '../../../../../core/services/business/ingredient.service';
 import { IngredientDTO } from '../../../../../core/models/business/dto/ingredient-dto';
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
+import { Router } from '@angular/router';
+import { CPROUTES } from '../../../../../core/constants/cp-routes';
 
 @Component({
   selector: 'm-ingredients',
@@ -15,7 +17,8 @@ export class IngredientsComponent implements OnInit {
 
 	constructor(
 		private _service: IngredientService,
-		private _loading: CpLoadingService
+		private _loading: CpLoadingService,
+		private _router: Router
 	) { }
 
 	ngOnInit() {
@@ -31,6 +34,14 @@ export class IngredientsComponent implements OnInit {
 		(apiResponse: ApiResponse) => {
 			this._loading.hide();
 		});
+	}
+
+	newIngredient() {
+		this._router.navigate([CPROUTES.INGREDIENT])
+	}
+
+	updateIngredient(id: number) {
+		this._router.navigate([CPROUTES.INGREDIENT, id])
 	}
 
 }

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
 import { CPLocalStorageService } from '../../../../../core/services/common/cp-localstorage.service';
+import { CPROUTES } from '../../../../../core/constants/cp-routes';
 
 @Component({
 	selector: 'm-ingredient',
@@ -91,7 +92,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				apiResponse => {
 					this._loading.hide();
 					this._toast.success('Feito!');
-					this._router.navigate(['/app/ingredientes']);
+					this._router.navigate([CPROUTES.INGREDIENTS]);
 				},
 				error => {
 					this._loading.hide();
@@ -102,7 +103,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				apiResponse => {
 					this._loading.hide();
 					this._toast.success('Feito!');
-					this._router.navigate(['/app/ingredientes']);
+					this._router.navigate([CPROUTES.INGREDIENTS]);
 				},
 				error => {
 					this._loading.hide();
@@ -113,7 +114,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 	}
 
 	cancel() {
-		this._router.navigate(['/app/ingredientes']);
+		this._router.navigate([CPROUTES.INGREDIENTS]);
 	}
 
 	fetchCategories() {

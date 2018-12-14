@@ -79,11 +79,12 @@
 						<div class="form-group m-form__group row">
 							<div class="full-width">
 								<label class="col-form-label" translate>{{ 'INPUTS.REGION' }}</label>
-								<select class="form-control cp-input" name="region" formControlName="region">
+								<select [compareWith]="compareSelect" class="form-control cp-input" name="region" formControlName="region">
 									<option value="null" [disabled]="true">Selecione uma opção</option>
 									<option *ngFor="let region of regions" [ngValue]="region">{{ region.state }}</option>
 								</select>
 							</div>
+
 							<mat-checkbox class="full-width" formControlName="filterByState"> {{ 'INPUTS.FILTERBYSTATE' | translate }} </mat-checkbox>
 						</div>
 

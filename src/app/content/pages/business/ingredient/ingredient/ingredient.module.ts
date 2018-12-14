@@ -16,28 +16,29 @@ const routes: Routes = [
     {
         path: '',
         component: IngredientComponent
-    }
+    },
+
 ];
 
 @NgModule({
     imports: [
         CommonModule,
         MetronicCoreModule,
-		LayoutModule,
-		PartialsModule,
-		AngularEditorModule,
-		MatInputModule,
-		MatFormFieldModule,
-		MatCheckboxModule,
+        LayoutModule,
+        PartialsModule,
+        AngularEditorModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
         MatIconModule,
         MatOptionModule,
         MatSelectModule,
-		ReactiveFormsModule,
+        ReactiveFormsModule,
         CommonServiceModule,
         ReactiveFormsModule,
         CPCommonComponentsModule,
         TranslateModule.forChild(),
-		RouterModule.forChild(routes)
+        RouterModule.forChild(routes)
     ],
     declarations: [
         IngredientComponent
