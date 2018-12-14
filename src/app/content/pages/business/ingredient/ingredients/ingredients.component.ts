@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 import { CPROUTES } from '../../../../../core/constants/cp-routes';
 
 @Component({
-  selector: 'm-ingredients',
-  templateUrl: './ingredients.component.html',
-  styleUrls: ['./ingredients.component.scss']
+	selector: 'm-ingredients',
+	templateUrl: './ingredients.component.html',
+	styleUrls: ['./ingredients.component.scss']
 })
 export class IngredientsComponent implements OnInit {
 
@@ -27,13 +27,13 @@ export class IngredientsComponent implements OnInit {
 
 	fetchIngredients() {
 		this._loading.show();
-		this._service.get().subscribe((apiResponse: ApiResponse) => {
-			this.ingredients = apiResponse.data;
-			this._loading.hide();
-		},
-		(apiResponse: ApiResponse) => {
-			this._loading.hide();
-		});
+		this._service.get()
+			.subscribe((apiResponse: ApiResponse) => {
+				this.ingredients = apiResponse.data;
+			}, (apiResponse: ApiResponse) => {
+			}, () => {
+				this._loading.hide();
+			});
 	}
 
 	newIngredient() {

@@ -5,6 +5,7 @@ import { MatFormFieldModule, MatInputModule, MatCheckboxModule } from "@angular/
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { TranslateModule } from "@ngx-translate/core";
+import { RecipeModule } from "./recipe/recipe/recipe.module";
 
 @NgModule({
 	imports: [
@@ -14,6 +15,7 @@ import { TranslateModule } from "@ngx-translate/core";
 		MatInputModule,
 		MatCheckboxModule,
 		ReactiveFormsModule,
+		RecipeModule,
 		FormsModule,
 		TranslateModule.forChild()
 	],

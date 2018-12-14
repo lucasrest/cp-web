@@ -7,12 +7,13 @@ const routes: Routes = [
         path: '', children: [
             {
                 path: '', loadChildren: '../../pages/components/dashboard/dashboard.module#DashboardModule'
-			},
-			{
-				path: 'perfil',
-				component: CPProfileComponent
-			},
-			{
+            },
+            {
+                path: 'perfil',
+                component: CPProfileComponent
+            },
+
+            {
                 path: 'ingrediente', loadChildren: './ingredient/ingredient/ingredient.module#IngredientModule'
             },
             {
@@ -21,6 +22,28 @@ const routes: Routes = [
             {
                 path: 'ingredientes', loadChildren: './ingredient/ingredients/ingredients.module#IngredientsModule'
             },
+
+            {
+                path: 'receita', loadChildren: './recipe/recipe/recipe.module#RecipeModule'
+            },
+            {
+                path: 'receita/:id', loadChildren: './recipe/recipe/recipe.module#RecipeModule'
+            },
+            {
+                path: 'receitas', loadChildren: './recipe/recipes/recipes.module#RecipesModule'
+            },
+
+
+            {
+                path: 'cardapio', loadChildren: './menu/menu/menu.module#MenuModule'
+            },
+            {
+                path: 'cardapio/:id', loadChildren: './menu/menu/menu.module#MenuModule'
+            },
+            {
+                path: 'cardapios', loadChildren: './menu/menus/menus.module#MenusModule'
+            },
+
         ]
     }
 ];
