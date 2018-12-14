@@ -14,7 +14,8 @@ export const ENDPOINTS = {
 		INGREDIENTS: `${PACKAGE.BUSINESS}/ingredient`,
 		INGREDIENT_CATEGORIES_REDUCED: `${PACKAGE.BUSINESS}/ingredient-category/reduced`,
 		UNITS_REDUCED: `${PACKAGE.BUSINESS}/unit/reduced`,
-		REGION: `${PACKAGE.BUSINESS}/region`
+        REGION: `${PACKAGE.BUSINESS}/region`,
+        RECIPES: `${PACKAGE.BUSINESS}/recipe`,
 	}
 
 }
