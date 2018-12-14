@@ -7,7 +7,9 @@ export const locale = {
 		},
 		MENU: {			
 			DASHBOARD: 'Dashboard',
-			INGREDIENTS: 'Ingredientes'
+			INGREDIENTS: 'Ingredientes',
+			RECIPE: 'Receitas',
+			MENU: 'Cardápios',
 		},
 		INPUTS: {
 			REGION: 'Estado',
