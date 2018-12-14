@@ -13,9 +13,12 @@ export const CPROUTES = {
 
     REGISTER_USER:  `${_CP_ROUTES.APP}/user`,
 
+    INGREDIENT:  `${_CP_ROUTES.APP}/ingrediente`,
+
     INGREDIENTS:  `${_CP_ROUTES.APP}/ingredientes`,
 
     RECIPE:  `${_CP_ROUTES.APP}/receitas`,
 
-    MENU:  `${_CP_ROUTES.APP}/cardapios`,
+    MENU:  `${_CP_ROUTES.APP}/cardapios`
+    
 }

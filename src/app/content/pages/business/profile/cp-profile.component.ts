@@ -64,12 +64,11 @@ export class CPProfileComponent extends CpBaseComponent implements OnInit {
 
 	saveModifications() {
 		this._cpLoadingService.show();
-		this._currentUser.name = this.formGroup.value.name;
-		this._currentUser.email = this.formGroup.value.email;
+		this._currentUser = this.formGroup.value;
+		this._currentUser.id = this.user.id;
 		this._userService.update(this._currentUser)
 			.subscribe(apiResponse => {
-				this.user.name = apiResponse.data.name;
-				this.user.email = apiResponse.data.email;
+				this.user = apiResponse.data;
 				this._cpLoadingService.hide();
 				this._toastr.success(apiResponse.message);
 			}, err => {
@@ -79,10 +78,10 @@ export class CPProfileComponent extends CpBaseComponent implements OnInit {
 
 	fillForm() {
 		this.formGroup.setValue({
-			name: this._currentUser.name,
-			email: this._currentUser.email,
-			filterByState: this._currentUser.filterByState,
-			region: this._currentUser.region
+			name: this.user.name,
+			email: this.user.email,
+			filterByState: this.user.filterByState,
+			region: this.user.region
 		})
 	}
 

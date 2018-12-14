@@ -58,32 +58,31 @@
 			<div class="m-portlet__body">
 				<form class="m-form m-form--fit m-form--label-align-right" name="form" [formGroup]="formGroup" novalidate>
 					<div class="m-portlet__body">
-						<div class="form-group m-form__group row">
+						<div class="form-group m-form__group">
 							<div class="col-10 ml-auto">
 								<h3 class="m-form__section" translate>{{ 'PROFILE.USER.DETAIL' }}</h3>
 							</div>
 						</div>
-						<div class="form-group m-form__group row">
-							<mat-form-field class="full-width">
-								<mat-label translate>{{ 'PROFILE.USER.NAME' }}</mat-label>
-								<input matInput type="text" name="name" autocomplete="off" formControlName="name">
-							</mat-form-field>
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'PROFILE.USER.NAME' }}</label>
+							<input class="form-control m-input cp-input" name="name" formControlName="name"
+									placeholder="{{'PROFILE.USER.NAME' | translate }}" type="text">
 						</div>
-						<div class="form-group m-form__group row">
-							<mat-form-field class="full-width">
-								<mat-label translate>{{ 'PROFILE.USER.EMAIL' }}</mat-label>
-								<input matInput type="text" name="email" autocomplete="off" formControlName="email">
-							</mat-form-field>
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'PROFILE.USER.EMAIL' }}</label>
+							<input class="form-control m-input cp-input" name="email" formControlName="email"
+									placeholder="{{'PROFILE.USER.EMAIL' | translate }}" type="text">
 						</div>
 
-						<div class="form-group m-form__group row">
-							<div class="full-width">
-								<label class="col-form-label" translate>{{ 'INPUTS.REGION' }}</label>
-								<select class="form-control cp-input" name="region" formControlName="region">
-									<option value="null" [disabled]="true">Selecione uma opção</option>
-									<option *ngFor="let region of regions" [ngValue]="region">{{ region.state }}</option>
-								</select>
-							</div>
+						<div class="form-group m-form__group">
+							<label class="col-form-label" translate>{{ 'INPUTS.REGION' }}</label>
+							<select [compareWith]="compareSelect" class="form-control cp-input" name="region" formControlName="region">
+								<option value="null" [disabled]="true">Selecione uma opção</option>
+								<option *ngFor="let region of regions" [ngValue]="region">{{ region.state }}</option>
+							</select>
+						</div>
+
+						<div class="form-group m-form__group">
 							<mat-checkbox class="full-width" formControlName="filterByState"> {{ 'INPUTS.FILTERBYSTATE' | translate }} </mat-checkbox>
 						</div>
 
