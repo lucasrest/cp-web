@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
 import { CPLocalStorageService } from '../../../../../core/services/common/cp-localstorage.service';
-import { CPROUTES } from '../../../../../core/constants/cp-routes';
+import { CpRoutes } from '../../../../../core/constants/cp-routes';
+import { Messages } from '../../../../../core/constants/messages';
 
 @Component({
 	selector: 'm-ingredient',
@@ -34,8 +35,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 		private _loading: CpLoadingService,
 		private _router: Router,
 		private _localStorage: CPLocalStorageService,
-        private _route: ActivatedRoute,
-		private _cdr: ChangeDetectorRef
+		private _route: ActivatedRoute
 	) {
 		super();
 	}
@@ -47,12 +47,12 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 			]],
 			ingredientCategory: [null, [
 				Validators.required
-            ]],
-            purchasePrice: this._formBuilder.group({
-                price: [null, [Validators.required]],
-                unityQuantity: [null, [Validators.required]],
-                unit: [null, [Validators.required]]
-            }),
+			]],
+			purchasePrice: this._formBuilder.group({
+				price: [null, [Validators.required]],
+				unityQuantity: [null, [Validators.required]],
+				unit: [null, [Validators.required]]
+			}),
 			unit: [null, [
 				Validators.required
 			]],
@@ -64,27 +64,34 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 
 		this.paramsSub = this._route.params.subscribe(params => {
 			let id = +params['id'];
-			if(id) {
+			if (id) {
 				this._loading.show();
 				this._service.getById(id).subscribe(
 					apiResponse => {
-                        this.ingredient = apiResponse.data;
-                        let purchPrice = this.ingredient.purchasePrice
-						this.formGroup.setValue({
-							name: this.ingredient.name,
-                            ingredientCategory: this.ingredient.ingredientCategory,
-                            purchasePrice: {price: purchPrice.price, unityQuantity: purchPrice.unityQuantity, unit: purchPrice.unit},
-							unit: this.ingredient.unit,
-							description: this.ingredient.description
-						});
+						this.ingredient = apiResponse.data;
+						this.fillForm();
 						this._loading.hide();
 					},
 					error => {
-                        this._loading.hide();
-                        this._cdr.detectChanges();
+						this._loading.hide();
 					}
 				);
 			}
+		});
+	}
+
+	fillForm(): any {
+		let purchPrice = this.ingredient.purchasePrice
+		this.formGroup.setValue({
+			name: this.ingredient.name,
+			ingredientCategory: this.ingredient.ingredientCategory,
+			purchasePrice: {
+				price: purchPrice.price,
+				unityQuantity: purchPrice.unityQuantity,
+				unit: purchPrice.unit
+			},
+			unit: this.ingredient.unit,
+			description: this.ingredient.description
 		});
 	}
 
@@ -93,38 +100,36 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 	}
 
 	save() {
-        this._loading.show();
+		this._loading.show();
 		this.formGroup.value.user = this._localStorage.getLoggedUser();
-		if(this.ingredient && this.ingredient.id) {
-            this.formGroup.value.id = this.ingredient.id;
+		if (this.ingredient && this.ingredient.id) {
+			this.formGroup.value.id = this.ingredient.id;
 			this._service.update(this.formGroup.value).subscribe(
 				apiResponse => {
 					this._loading.hide();
-					this._toast.success('Feito!');
-					this._router.navigate([CPROUTES.INGREDIENTS]);
+					this._toast.success(Messages.SUCCESS);
+					this._router.navigate([CpRoutes.INGREDIENTS]);
 				},
 				error => {
-                    this._loading.hide();
-                    this._cdr.detectChanges();
+					this._loading.hide();
 				}
 			);
 		} else {
 			this._service.insert(this.formGroup.value).subscribe(
 				apiResponse => {
 					this._loading.hide();
-					this._toast.success('Feito!');
-					this._router.navigate([CPROUTES.INGREDIENTS]);
+					this._toast.success(Messages.SUCCESS);
+					this._router.navigate([CpRoutes.INGREDIENTS]);
 				},
 				error => {
-                    this._loading.hide();
-                    this._cdr.detectChanges();
+					this._loading.hide();
 				}
 			);
 		}
 	}
 
 	cancel() {
-		this._router.navigate([CPROUTES.INGREDIENTS]);
+		this._router.navigate([CpRoutes.INGREDIENTS]);
 	}
 
 	fetchCategories() {
@@ -132,7 +137,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 			apiResponse => {
 				this.categories = apiResponse.data;
 			},
-			error => {}
+			error => { }
 		)
 	}
 
@@ -141,8 +146,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 			apiResponse => {
 				this.units = apiResponse.data;
 			},
-			error => {}
+			error => { }
 		)
-    }
+	}
 
 }

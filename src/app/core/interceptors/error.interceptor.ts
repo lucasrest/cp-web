@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ChangeDetectorRef } from "@angular/core";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ApiResponse } from "../models/api-response";
 import { HttpStatusCode } from "../constants/http-status-code";
@@ -7,13 +7,12 @@ import { ToastrService } from "ngx-toastr";
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from "rxjs";
 import { Router } from "@angular/router";
-import { ENDPOINTS } from "../constants/endpoints";
-import { CPROUTES } from "../constants/cp-routes";
+import { CpRoutes } from "../constants/cp-routes";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(private toast: ToastrService,
+    constructor(private toast: ToastrService,        
         private router: Router) {
     }
 
@@ -42,7 +41,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     redirectToLoginIfDeniedAccess(status) {
         if (status == HttpStatusCode.UNAUTHORIZED ||
             status == HttpStatusCode.FORBIDDEN) {
-            this.router.navigate([CPROUTES.LOGIN]);
+            this.router.navigate([CpRoutes.LOGIN]);
         }
     }
 

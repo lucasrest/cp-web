@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit, ViewChild, } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit, ViewChild, ChangeDetectorRef, OnDestroy, } from '@angular/core';
 import * as objectPath from 'object-path';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
@@ -12,7 +12,8 @@ import { ClassInitService } from './core/metronic/services/class-init.service';
 import { TranslationService } from './core/metronic/services/translation.service';
 import { PageConfigService } from './core/metronic/services/page-config.service';
 import { SplashScreenService } from './core/metronic/services/splash-screen.service';
-import { AclService } from './core/metronic/services/acl.service';
+import { CpLoadingService } from './core/services/common/cp-loading.service';
+import { Subscription } from 'rxjs';
 
 // LIST KNOWN ISSUES
 // [Violation] Added non-passive event listener; https://github.com/angular/angular/issues/8866
@@ -24,6 +25,7 @@ import { AclService } from './core/metronic/services/acl.service';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit, OnInit {
+	
 	title = 'Chefpro';
 
 	@HostBinding('style') style: any;
@@ -40,7 +42,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 		private translationService: TranslationService,
 		private router: Router,
 		private pageConfigService: PageConfigService,
-		private splashScreenService: SplashScreenService
+		private splashScreenService: SplashScreenService		
 	) {
 		
 		
@@ -79,7 +81,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 			});
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+
+	}
 
 	ngAfterViewInit(): void {
 		if (this.splashScreen) {

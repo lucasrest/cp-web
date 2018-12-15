@@ -1,5 +1,5 @@
 import { ConfigModel } from "../core/metronic/interfaces/config";
-import { CPROUTES } from "../core/constants/cp-routes";
+import { CpRoutes } from "../core/constants/cp-routes";
 
 // tslint:disable-next-line:no-shadowed-variable
 
@@ -461,7 +461,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Some description goes here',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: CPROUTES.HOME,
+						page: CpRoutes.HOME,
 						badge: {type: 'm-badge--danger', value: '2'},
 						translate: 'MENU.DASHBOARD'
 					},
@@ -470,7 +470,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Lista de Ingredientes',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: CPROUTES.INGREDIENTS,
+						page: CpRoutes.INGREDIENTS,
 						translate: 'MENU.INGREDIENTS'
 					},
 					{
@@ -478,7 +478,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Lista de Receitas',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: CPROUTES.RECIPE,
+						page: CpRoutes.RECIPE,
 						translate: 'MENU.RECIPE'
 					},
 					{
@@ -486,7 +486,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Lista de Cardápios',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: CPROUTES.MENU,
+						page: CpRoutes.MENU,
 						translate: 'MENU.MENU'
 					}
 				]

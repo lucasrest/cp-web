@@ -1,8 +1,8 @@
 <cp-loading></cp-loading>
 
 <div class="text-right">
-	<button class="btn btn-accent m-btn m-btn--air m-btn--custom" mat-button (click)="new()">
-		Novo
+	<button class="btn btn-accent m-btn m-btn--air m-btn--custom" mat-button (click)="new()" translate>
+		{{ 'INPUTS.NEW' }}
 	</button>
 </div>
 <mat-nav-list>
@@ -14,6 +14,6 @@
 	</a>
 </mat-nav-list>
 
-<div class="alert alert-info" *ngIf="!ingredients?.length">
-	Sem ingredientes cadastrados.
+<div class="alert alert-info" *ngIf="!ingredients?.length" translate>
+	{{ 'INGREDIENT.NO_RESULTS'}}
 </div>

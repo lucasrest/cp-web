@@ -5,7 +5,7 @@ const _CP_ROUTES = {
     LANDPAGE: ''
 }
 
-export const CPROUTES = {
+export const CpRoutes = {
 
     HOME: _CP_ROUTES.APP,
 

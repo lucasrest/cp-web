@@ -8,6 +8,7 @@ import { AngularEditorModule } from "@kolkov/angular-editor";
 import { MatListModule, MatCardModule, MatIconModule, MatDividerModule } from "@angular/material";
 import { Routes, RouterModule } from "@angular/router";
 import { CPCommonComponentsModule } from "../../../components/common/cp-common-components.module";
+import { TranslateModule } from "@ngx-translate/core";
 
 const routes: Routes = [
     {
@@ -27,8 +28,9 @@ const routes: Routes = [
         MatCardModule,
         MatDividerModule,
         MatIconModule,
-		RouterModule.forChild(routes),
-		CPCommonComponentsModule
+		CPCommonComponentsModule,
+        RouterModule.forChild(routes),
+        TranslateModule.forChild()
     ],
     declarations: [
         IngredientsComponent

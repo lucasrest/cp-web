@@ -4,7 +4,7 @@ import { ApiResponse } from '../../../../../core/models/api-response';
 import { RecipeDTO } from '../../../../../core/models/business/dto/recipe-dto';
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
 import { Router } from '@angular/router';
-import { CPROUTES } from '../../../../../core/constants/cp-routes';
+import { CpRoutes } from '../../../../../core/constants/cp-routes';
 
 @Component({
     selector: 'm-recipes',
@@ -39,11 +39,11 @@ export class RecipesComponent implements OnInit {
     }
 
     new() {
-		this._router.navigate([CPROUTES.RECIPE])
+		this._router.navigate([CpRoutes.RECIPE])
 	}
 
 	edit(id: number) {
-		this._router.navigate([CPROUTES.RECIPE, id])
+		this._router.navigate([CpRoutes.RECIPE, id])
 	}
         
 }

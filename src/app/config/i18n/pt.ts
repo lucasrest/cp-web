@@ -13,15 +13,23 @@ export const locale = {
 		},
 		INPUTS: {
 			REGION: 'Estado',
-			FILTERBYSTATE: 'Filtrar Ingredientes por Estado'
+			FILTERBYSTATE: 'Filtrar Ingredientes por Estado',
+			OPTION_DEFAULT: 'Selecione uma opção',
+			SAVE: 'Salvar',
+			BACK: 'Voltar',
+			NEW: 'Novo'
 		},
 		INGREDIENT: {
 			TITLE: 'Cadastro de Ingrediente',
+			TITLE_PURCHASE_PRICE: 'Preço de Compra',
+			NO_RESULTS: 'Sem ingredientes cadastrados.',
 			INPUT: {
 				NAME: 'Nome',
 				CATEGORY: 'Categoria',
 				UNIT: 'Medida',
-				DESCRIPTION: 'Descrição'
+				DESCRIPTION: 'Descrição',
+				PRICE: 'Preço',
+				UNITQUANTITY: 'Quantidade'
 			}
 		},
 		PROFILE: {

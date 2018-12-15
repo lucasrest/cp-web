@@ -4,7 +4,7 @@ import { IngredientService } from '../../../../../core/services/business/ingredi
 import { IngredientDTO } from '../../../../../core/models/business/dto/ingredient-dto';
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
 import { Router } from '@angular/router';
-import { CPROUTES } from '../../../../../core/constants/cp-routes';
+import { CpRoutes } from '../../../../../core/constants/cp-routes';
 
 @Component({
 	selector: 'm-ingredients',
@@ -31,17 +31,16 @@ export class IngredientsComponent implements OnInit {
 			.subscribe((apiResponse: ApiResponse) => {
 				this.ingredients = apiResponse.data;
 			}, (apiResponse: ApiResponse) => {
-			}, () => {
 				this._loading.hide();
 			});
 	}
 
 	new() {
-		this._router.navigate([CPROUTES.INGREDIENT])
+		this._router.navigate([CpRoutes.INGREDIENT])
 	}
 
 	edit(id: number) {
-		this._router.navigate([CPROUTES.INGREDIENT, id])
+		this._router.navigate([CpRoutes.INGREDIENT, id])
 	}
 
 }

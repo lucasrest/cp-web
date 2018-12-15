@@ -7,15 +7,17 @@ import {
 	ViewChild,
 	ElementRef,
 	AfterViewInit,
-	ChangeDetectionStrategy
+	ChangeDetectionStrategy,
+	ChangeDetectorRef
 } from '@angular/core';
 import * as objectPath from 'object-path';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { AnimationBuilder, AnimationPlayer, style, animate } from '@angular/animations';
 import { LayoutConfigService } from '../../core/metronic/services/layout-config.service';
 import { ClassInitService } from '../../core/metronic/services/class-init.service';
 import { LayoutRefService } from '../../core/metronic/services/layout/layout-ref.service';
 import { TranslationService } from '../../core/metronic/services/translation.service';
+import { CpLoadingService } from '../../core/services/common/cp-loading.service';
 
 @Component({
 	selector: 'm-pages',
@@ -37,6 +39,8 @@ export class PagesComponent implements OnInit, AfterViewInit {
 	@ViewChild('mContentWrapper') contenWrapper: ElementRef;
 	@ViewChild('mContent') mContent: ElementRef;
 
+	private _alertSubscription: Subscription;
+
 	constructor(
 		private el: ElementRef,
 		private configService: LayoutConfigService,
@@ -45,6 +49,8 @@ export class PagesComponent implements OnInit, AfterViewInit {
 		private layoutRefService: LayoutRefService,
 		private animationBuilder: AnimationBuilder,
 		private translationService: TranslationService,
+		private _cpLoading: CpLoadingService,
+		private _cdr: ChangeDetectorRef
 	) {
 		this.configService.onLayoutConfigUpdated$.subscribe(model => {
 			const config = model.config;
@@ -84,7 +90,17 @@ export class PagesComponent implements OnInit, AfterViewInit {
 		});
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+
+		this._alertSubscription = this._cpLoading.loadingHideEvent.subscribe( () => {
+			this._cdr.detectChanges();
+		});
+
+	}
+
+	ngOnDestroy(): void {
+		this._alertSubscription.unsubscribe();
+	}
 
 	ngAfterViewInit(): void {
 		setTimeout(() => {

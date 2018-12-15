@@ -1,11 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 export class CpLoadingService {
 
-    constructor(
-        private _spinner: NgxSpinnerService) {
+    public loadingHideEvent: EventEmitter<any> = new EventEmitter();
+
+    constructor(private _spinner: NgxSpinnerService) {
     }
 
     show() {
@@ -14,6 +15,7 @@ export class CpLoadingService {
 
     hide() {
         this._spinner.hide();
+        this.loadingHideEvent.emit();
     }
 
 }
