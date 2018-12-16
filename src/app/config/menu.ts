@@ -478,7 +478,7 @@ export class MenuConfig implements ConfigModel {
 						desc: 'Lista de Receitas',
 						root: true,
 						icon: 'flaticon-line-graph',
-						page: CpRoutes.RECIPE,
+						page: CpRoutes.RECIPES,
 						translate: 'MENU.RECIPE'
 					},
 					{

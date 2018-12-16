@@ -5,7 +5,7 @@ export const locale = {
 		TRANSLATOR: {
 			SELECT: 'Selecione a Lingua',
 		},
-		MENU: {			
+		MENU: {
 			DASHBOARD: 'Dashboard',
 			INGREDIENTS: 'Ingredientes',
 			RECIPE: 'Receitas',
@@ -30,6 +30,16 @@ export const locale = {
 				DESCRIPTION: 'Descrição',
 				PRICE: 'Preço',
 				UNITQUANTITY: 'Quantidade'
+			}
+		},
+		RECIPE: {
+			TITLE: 'Cadastro de Receita',
+			NO_RESULTS: 'Sem receitas cadastradas.',
+			INPUT: {
+				NAME: 'Nome',
+				CATEGORY: 'Categoria',
+				UNIT: 'Medida',
+				DESCRIPTION: 'Descrição'
 			}
 		},
 		PROFILE: {

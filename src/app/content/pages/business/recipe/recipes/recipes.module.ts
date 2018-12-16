@@ -8,6 +8,7 @@ import { PartialsModule } from '../../../../partials/partials.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MatListModule, MatCardModule, MatDividerModule, MatIconModule } from '@angular/material';
 import { CPCommonComponentsModule } from '../../../components/common/cp-common-components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -19,16 +20,17 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    MetronicCoreModule,
-    LayoutModule,
-    PartialsModule,
-    AngularEditorModule,
-    MatListModule,
-    MatCardModule,
-    MatDividerModule,
-    MatIconModule,
-    RouterModule.forChild(routes),
-    CPCommonComponentsModule
+	MetronicCoreModule,
+	LayoutModule,
+	PartialsModule,
+	AngularEditorModule,
+	MatListModule,
+	MatCardModule,
+	MatDividerModule,
+	MatIconModule,
+	CPCommonComponentsModule,
+	RouterModule.forChild(routes),
+	TranslateModule.forChild()
   ],
   declarations: [RecipesComponent]
 })

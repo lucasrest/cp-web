@@ -1,5 +1,5 @@
 const _CP_ROUTES = {
-    
+
     APP: '/app',
 
     LANDPAGE: ''
@@ -22,5 +22,5 @@ export const CpRoutes = {
     RECIPES:  `${_CP_ROUTES.APP}/receitas`,
 
     MENU:  `${_CP_ROUTES.APP}/cardapios`
-    
+
 }
