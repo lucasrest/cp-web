@@ -1,6 +1,6 @@
 import { CpBaseComponent } from './../../common/cp-base/cp-base.component';
 import { User } from './../../../../core/models/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CPLocalStorageService } from '../../../../core/services/common/cp-localstorage.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../../../core/auth/user.service';
@@ -23,14 +23,15 @@ export class CPProfileComponent extends CpBaseComponent implements OnInit {
 	private _currentUser: User;
 
 	constructor(
+		_cdr: ChangeDetectorRef,
+		_loading: CpLoadingService,
 		private _userService: UserService,
 		private _formBuilder: FormBuilder,
 		private _cpLocalStorageService: CPLocalStorageService,
-		private _cpLoadingService: CpLoadingService,
 		private _toastr: ToastrService,
 		private _regionService: RegionService
 	) {
-		super();
+		super(_loading, _cdr);
 		this.fillUser();
 	}
 
@@ -63,16 +64,16 @@ export class CPProfileComponent extends CpBaseComponent implements OnInit {
 	}
 
 	saveModifications() {
-		this._cpLoadingService.show();
+		this._loading.show();
 		this._currentUser = this.formGroup.value;
 		this._currentUser.id = this.user.id;
 		this._userService.update(this._currentUser)
 			.subscribe(apiResponse => {
 				this.user = apiResponse.data;
-				this._cpLoadingService.hide();
+				this._loading.hide();
 				this._toastr.success(apiResponse.message);
 			}, err => {
-				this._cpLoadingService.hide();
+				this._loading.hide();
 			});
 	}
 

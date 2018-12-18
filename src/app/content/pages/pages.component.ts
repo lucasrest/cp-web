@@ -91,11 +91,9 @@ export class PagesComponent implements OnInit, AfterViewInit {
 	}
 
 	ngOnInit(): void {
-
 		this._alertSubscription = this._cpLoading.loadingHideEvent.subscribe( () => {
 			this._cdr.detectChanges();
 		});
-
 	}
 
 	ngOnDestroy(): void {

@@ -55,16 +55,16 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 	};
 
 	constructor(
+		_cdr: ChangeDetectorRef,
+		_loading: CpLoadingService,
 		private router: Router,
 		public authNoticeService: AuthNoticeService,
 		private translate: TranslateService,
-		private cdr: ChangeDetectorRef,
 		private authService: AuthService,
 		private storageService: CPLocalStorageService,
 		private formBuilder: FormBuilder,
-		private _loading: CpLoadingService
 	) {
-		super();
+		super(_loading, _cdr);
 	}
 
 	ngOnInit(): void {
@@ -105,12 +105,12 @@ export class LoginComponent extends CpBaseComponent implements OnInit, OnDestroy
 					this.router.navigate([CpRoutes.HOME]);
 					this.spinner.active = false;
 					this._loading.hide();
-					this.cdr.detectChanges();
+					this._cdr.detectChanges();
 				}, err => {
 					this.spinner.active = false;
 					this._loading.hide();
 					this.authNoticeService.setNotice(err.error, 'error');
-					this.cdr.detectChanges();
+					this._cdr.detectChanges();
 				});
 		}
 	}

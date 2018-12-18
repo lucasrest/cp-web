@@ -28,16 +28,17 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 	private paramsSub: any;
 
 	constructor(
+		_cdr: ChangeDetectorRef,
+		_loading: CpLoadingService,
 		private _service: IngredientService,
 		private _unitService: UnitService,
 		private _toast: ToastrService,
 		private _formBuilder: FormBuilder,
-		private _loading: CpLoadingService,
 		private _router: Router,
 		private _localStorage: CPLocalStorageService,
 		private _route: ActivatedRoute
 	) {
-		super();
+		super(_loading, _cdr);
 	}
 
 	ngOnInit() {
@@ -71,11 +72,9 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 						this.ingredient = apiResponse.data;
 						this.fillForm();
 						this._loading.hide();
-						console.log('deu bom');
 					},
-					error => {
+					error => {						
 						this._loading.hide();
-						console.log('deu erro');
 					}
 				);
 			}
@@ -84,14 +83,14 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 
 	fillForm(): any {
 		let purchPrice = this.ingredient.purchasePrice
-		this.formGroup.setValue({
+		this.formGroup.patchValue({
 			name: this.ingredient.name,
 			ingredientCategory: this.ingredient.ingredientCategory,
 			unit: this.ingredient.unit,
 			description: this.ingredient.description
 		});
 		if (purchPrice) {
-			this.formGroup.setValue({
+			this.formGroup.patchValue({
 				purchasePrice: {
 					price: purchPrice.price ? purchPrice.price : 0,
 					unityQuantity: purchPrice.unityQuantity ? purchPrice.unityQuantity : 0,
@@ -117,6 +116,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 					this._router.navigate([CpRoutes.INGREDIENTS]);
 				},
 				error => {
+					console.log(error);
 					this._loading.hide();
 				}
 			);

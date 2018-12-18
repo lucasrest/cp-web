@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { CpLoadingService } from '../../../../core/services/common/cp-loading.service';
 
 @Component({
     selector: 'm-cp-base',
@@ -9,12 +11,28 @@ import { FormGroup } from '@angular/forms';
 export class CpBaseComponent implements OnInit {
     
     protected formGroup: FormGroup;
+
+    private _alertSubscription: Subscription;
     
-    constructor() { }
+    constructor(
+        protected _loading: CpLoadingService,
+		protected _cdr: ChangeDetectorRef
+    ) { 
+        this._alertSubscription = this._loading.loadingHideEvent.subscribe( () => {
+			this._cdr.detectChanges();
+        });
+    }
     
     ngOnInit() {
     }
     
+
+	ngOnDestroy(): void {
+        console.log('Desinscreveu');
+        this._alertSubscription.unsubscribe();
+        console.log(this._alertSubscription);
+	}
+
     protected getFieldErrors(fieldName: string) {
         return this.getField(fieldName).errors;
     }

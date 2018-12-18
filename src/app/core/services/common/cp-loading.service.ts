@@ -15,7 +15,9 @@ export class CpLoadingService {
 
     hide() {
         this._spinner.hide();
+        console.log('Emitir');
         this.loadingHideEvent.emit();
+        console.log('Emitiu');
     }
 
 }

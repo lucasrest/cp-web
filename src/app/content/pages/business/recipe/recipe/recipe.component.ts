@@ -1,7 +1,7 @@
 import { Recipe } from './../../../../../core/models/business/recipe';
 import { CpLoadingService } from './../../../../../core/services/common/cp-loading.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RecipeService } from '../../../../../core/services/business/recipe.service';
 import { CpRoutes } from '../../../../../core/constants/cp-routes';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,13 +20,14 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 	private paramsSub: any;
 
 	constructor(
+		_cdr: ChangeDetectorRef,
+		_loading: CpLoadingService,
 		private _service: RecipeService,
 		private _router: Router,
 		private _formBuilder: FormBuilder,
 		private _route: ActivatedRoute,
-		private _loading: CpLoadingService,
 	) {
-		super();
+		super(_loading, _cdr);
 	 }
 
 	ngOnInit() {

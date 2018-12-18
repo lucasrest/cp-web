@@ -48,15 +48,15 @@ export class RegisterComponent extends CpBaseComponent implements OnInit {
 	};
 
 	constructor(
+		_cdr: ChangeDetectorRef,
+		_loading: CpLoadingService,
 		private userService: UserService,
-		private cdr: ChangeDetectorRef,
 		private router: Router,
 		public authNoticeService: AuthNoticeService,
 		private translate: TranslateService,
-		private cpLoading: CpLoadingService,
 		private formBuilder: FormBuilder,
 	) {
-		super();
+		super(_loading, _cdr);
 	}
 
 	ngOnInit() {
@@ -87,17 +87,17 @@ export class RegisterComponent extends CpBaseComponent implements OnInit {
 
 		this.spinner.active = true;
 		if (this.validate()) {
-			this.cpLoading.show();
+			this._loading.show();
 			this.userService.register(this.formGroup.value)
 				.subscribe((res) => {
-					this.cpLoading.hide();
+					this._loading.hide();
 					this.spinner.active = false;
-					this.cdr.detectChanges();
+					this._cdr.detectChanges();
 					this.router.navigate([CpRoutes.HOME]);
 				}, err => {
-					this.cpLoading.hide();
+					this._loading.hide();
 					this.spinner.active = false;
-					this.cdr.detectChanges();
+					this._cdr.detectChanges();
 				});
 		}
 	}
@@ -147,7 +147,7 @@ export class RegisterComponent extends CpBaseComponent implements OnInit {
 		if (this.errors.length > 0) {
 			this.authNoticeService.setNotice(this.errors.join('<br/>'), 'error');
 			this.spinner.active = false;
-			this.cdr.detectChanges();
+			this._cdr.detectChanges();
 		} 
 
 		return false;
