@@ -1,5 +1,4 @@
-export interface RecipeDTO {
+import { BaseEntity } from "../../common/baseentity";
 
-	name: string;
-
+export interface RecipeDTO extends BaseEntity {
 }

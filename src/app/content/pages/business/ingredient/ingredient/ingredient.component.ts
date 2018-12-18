@@ -71,9 +71,11 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 						this.ingredient = apiResponse.data;
 						this.fillForm();
 						this._loading.hide();
+						console.log('deu bom');
 					},
 					error => {
 						this._loading.hide();
+						console.log('deu erro');
 					}
 				);
 			}
@@ -85,14 +87,18 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 		this.formGroup.setValue({
 			name: this.ingredient.name,
 			ingredientCategory: this.ingredient.ingredientCategory,
-			purchasePrice: {
-				price: purchPrice.price,
-				unityQuantity: purchPrice.unityQuantity,
-				unit: purchPrice.unit
-			},
 			unit: this.ingredient.unit,
 			description: this.ingredient.description
 		});
+		if (purchPrice) {
+			this.formGroup.setValue({
+				purchasePrice: {
+					price: purchPrice.price ? purchPrice.price : 0,
+					unityQuantity: purchPrice.unityQuantity ? purchPrice.unityQuantity : 0,
+					unit: purchPrice.unit
+				}
+			});
+		}
 	}
 
 	ngOnDestroy(): void {

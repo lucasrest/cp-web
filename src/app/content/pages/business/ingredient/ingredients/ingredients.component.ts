@@ -27,10 +27,11 @@ export class IngredientsComponent implements OnInit {
 
 	fetchIngredients() {
 		this._loading.show();
-		this._service.get()
+		this._service.getReduced()
 			.subscribe((apiResponse: ApiResponse) => {
 				this.ingredients = apiResponse.data;
 			}, (apiResponse: ApiResponse) => {
+			}, () => {
 				this._loading.hide();
 			});
 	}

@@ -26,6 +26,10 @@ export class IngredientService {
 		return this._apiService.get(ENDPOINTS.BUSINESS.INGREDIENTS);
 	}
 
+	public getReduced(): Observable<ApiResponse> {
+		return this._apiService.get(`${ENDPOINTS.BUSINESS.INGREDIENTS}/reduced`);
+	}
+
 	public getById(id: number): Observable<ApiResponse> {
 		return this._apiService.get(`${ENDPOINTS.BUSINESS.INGREDIENTS}/${id}`);
 	}

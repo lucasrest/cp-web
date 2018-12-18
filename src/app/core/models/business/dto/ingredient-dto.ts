@@ -1,5 +1,5 @@
-export interface IngredientDTO {
+import { BaseEntity } from "../../common/baseentity";
 
-	name: string;
+export interface IngredientDTO extends BaseEntity {
 
 }
