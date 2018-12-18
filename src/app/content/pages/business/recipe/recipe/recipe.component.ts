@@ -1,3 +1,4 @@
+import { Messages } from './../../../../../core/constants/messages';
 import { Unit } from './../../../../../core/models/business/unit';
 import { UnitService } from './../../../../../core/services/business/unit.service';
 import { ApiResponse } from './../../../../../core/models/api-response';
@@ -11,6 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CpBaseComponent } from '../../../common/cp-base/cp-base.component';
 import { RecipeCategory } from '../../../../../core/models/business/recipecategory';
 import { FormArray } from '@angular/forms/src/model';
+import { CPLocalStorageService } from '../../../../../core/services/common/cp-localstorage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'm-recipe',
@@ -32,7 +35,9 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 		private _router: Router,
 		private _formBuilder: FormBuilder,
 		private _route: ActivatedRoute,
-		private _unitService: UnitService
+		private _unitService: UnitService,
+		private _localStorage: CPLocalStorageService,
+		private _toast: ToastrService
 	) {
 		super(_loading, _cdr);
 	 }
@@ -45,7 +50,13 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 			unityQuantity: [null, [Validators.required]],
 			unit: [null, [Validators.required]],
 			description: [null, [Validators.required]],
-			steps: this._formBuilder.array([this.createStep(1)])
+			steps: this._formBuilder.array([this.createStep(1)]),
+			financial: this._formBuilder.group({
+				totalCostValue: [null, [Validators.required]],
+				totalCostPerc: [null, [Validators.required]],
+				costUnitValue: [null, [Validators.required]],
+				costUnitPerc: [null, [Validators.required]]
+			})
 		});
 
 		this.fetchCategories();
@@ -93,6 +104,35 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 
 	cancel() {
 		this._router.navigate([CpRoutes.RECIPES]);
+	}
+
+	save() {
+		this._loading.show();
+		this.formGroup.value.user = this._localStorage.getLoggedUser();
+		if (this.recipe && this.recipe.id) {
+			this.formGroup.value.id = this.recipe.id;
+			this._service.update(this.formGroup.value).subscribe(
+				apiResponse => {
+					this._loading.hide();
+					this._toast.success(Messages.SUCCESS);
+					this._router.navigate([CpRoutes.RECIPES]);
+				},
+				error => {
+					this._loading.hide();
+				}
+			);
+		} else {
+			this._service.insert(this.formGroup.value).subscribe(
+				apiResponse => {
+					this._loading.hide();
+					this._toast.success(Messages.SUCCESS);
+					this._router.navigate([CpRoutes.RECIPES]);
+				},
+				error => {
+					this._loading.hide();
+				}
+			);
+		}
 	}
 
 	//Steps

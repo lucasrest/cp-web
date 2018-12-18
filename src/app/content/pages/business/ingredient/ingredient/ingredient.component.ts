@@ -73,7 +73,7 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 						this.fillForm();
 						this._loading.hide();
 					},
-					error => {						
+					error => {
 						this._loading.hide();
 					}
 				);

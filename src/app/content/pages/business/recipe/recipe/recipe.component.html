@@ -92,6 +92,41 @@
 					</ngb-tab>
 					<ngb-tab title="Financeiro">
 						<ng-template ngbTabContent>
+							<div formGroupName="financial">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group m-form__group">
+											<label class="col-form-label" translate>{{ 'RECIPE.INPUT.SELL_VALUE' }}</label>
+											<input class="form-control m-input cp-input" name="totalCostValue" formControlName="totalCostValue"
+												placeholder="0,00" type="text">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group m-form__group">
+											<label class="col-form-label" translate>{{ 'RECIPE.INPUT.PROFIT_PERC' }}</label>
+											<input class="form-control m-input cp-input" name="totalCostPerc" formControlName="totalCostPerc"
+												placeholder="0,00" type="text">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group m-form__group">
+											<label class="col-form-label" translate>{{ 'RECIPE.INPUT.SELL_VALUE' }}</label>
+											<input class="form-control m-input cp-input" name="costUnitValue" formControlName="costUnitValue"
+												placeholder="0,00" type="text">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group m-form__group">
+											<label class="col-form-label" translate>{{ 'RECIPE.INPUT.PROFIT_PERC' }}</label>
+											<input class="form-control m-input cp-input" name="costUnitPerc" formControlName="costUnitPerc"
+												placeholder="0,00" type="text">
+										</div>
+									</div>
+								</div>
+							</div>
 						</ng-template>
 					</ngb-tab>
 				</ngb-tabset>

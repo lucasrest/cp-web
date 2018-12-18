@@ -41,7 +41,9 @@ export const locale = {
 				PREPARATION_TIME: 'Tempo de preparo',
 				UNIT: 'Medida',
 				DESCRIPTION: 'Descrição',
-				UNITQUANTITY: 'Rendimento'
+				UNITQUANTITY: 'Rendimento',
+				SELL_VALUE: 'Valor de Venda',
+				PROFIT_PERC: 'Margem de Lucro'
 			}
 		},
 		PROFILE: {
