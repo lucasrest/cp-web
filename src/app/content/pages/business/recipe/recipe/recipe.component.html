@@ -6,44 +6,96 @@
 		</div>
 		<form class="m-form m-form--fit m-form--label-align-right" name="form" [formGroup]="formGroup" novalidate>
 			<div class="m-portlet__body">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="form-group m-form__group">
-							<label class="col-form-label" translate>{{ 'RECIPE.INPUT.NAME' }}</label>
-							<input class="form-control m-input cp-input" name="name" formControlName="name" placeholder="{{'RECIPE.INPUT.NAME' | translate }}"
-							 type="text">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="form-group m-form__group">
-							<label class="col-form-label" translate>{{ 'RECIPE.INPUT.CATEGORY' }}</label>
-							<select [compareWith]="compareSelect" class="form-control cp-input" name="category" formControlName="recipeCategory">
-								<option value="null" [disabled]="true" translate>{{'INPUTS.OPTION_DEFAULT'}}</option>
-								<option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="form-group m-form__group">
-							<label class="col-form-label" translate>{{ 'RECIPE.INPUT.UNIT' }}</label>
-							<select [compareWith]="compareSelect" class="form-control cp-input" name="unit" formControlName="unit">
-								<option value="null" [disabled]="true" translate>{{'INPUTS.OPTION_DEFAULT'}}</option>
-								<option *ngFor="let unit of units" [ngValue]="unit">{{ unit.name }}</option>
-							</select>
-						</div>
-					</div>
-				</div>
+				<ngb-tabset [justify]="justified">
+					<ngb-tab title="Geral">
+						<ng-template ngbTabContent>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.NAME' }}</label>
+										<input class="form-control m-input cp-input" name="name" formControlName="name" placeholder="{{'RECIPE.INPUT.NAME' | translate }}"
+											type="text">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.CATEGORY' }}</label>
+										<select [compareWith]="compareSelect" class="form-control cp-input" name="category" formControlName="recipeCategory">
+											<option value="null" [disabled]="true" translate>{{'INPUTS.OPTION_DEFAULT'}}</option>
+											<option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.PREPARATION_TIME' }}</label>
+										<input type="text" class="form-control m-input cp-input" name="preparationTime"
+											formControlName="preparationTime">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.UNITQUANTITY' }}</label>
+										<input class="form-control m-input cp-input" name="unityQuantity" type="number" formControlName="unityQuantity">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.UNIT' }}</label>
+										<select [compareWith]="compareSelect" class="form-control cp-input" name="unit" formControlName="unit">
+											<option value="null" [disabled]="true" translate>{{'INPUTS.OPTION_DEFAULT'}}</option>
+											<option *ngFor="let unit of units" [ngValue]="unit">{{ unit.name }}</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group m-form__group">
+										<label class="col-form-label" translate>{{ 'RECIPE.INPUT.DESCRIPTION' }}</label>
+										<textarea class="form-control cp-input" rows="3" formControlName="description" placeholder="{{'RECIPE.INPUT.DESCRIPTION' | translate }}"></textarea>
+									</div>
+								</div>
+							</div>
+						</ng-template>
+					</ngb-tab>
+					<ngb-tab title="Ingredientes">
+						<ng-template ngbTabContent>
+						</ng-template>
+					</ngb-tab>
+					<ngb-tab title="Preparo">
+						<ng-template ngbTabContent>
+							<h5>Modo de Preparo</h5>
 
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="form-group m-form__group">
-							<label class="col-form-label" translate>{{ 'RECIPE.INPUT.DESCRIPTION' }}</label>
-							<textarea class="form-control cp-input" rows="3" formControlName="description" placeholder="{{'RECIPE.INPUT.DESCRIPTION' | translate }}"></textarea>
-						</div>
-					</div>
-				</div>
+							<div formArrayName="steps"
+								*ngFor="let step of formGroup.get('steps').controls; let i = index">
+								<div class="form-group m-form__group" [formGroupName]="i">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<div class="input-group-text">{{i+1}}</div>
+										</div>
+										<input class="form-control m-input cp-input" name="name" formControlName="description"
+											placeholder="{{'RECIPE.INPUT.DESCRIPTION' | translate }}" type="text">
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<button class="btn btn-accent m-btn m-btn--air m-btn--custom" mat-button (click)="addStep()" translate>
+									{{ 'INPUTS.NEW' }}
+								</button>
+							</div>
+						</ng-template>
+					</ngb-tab>
+					<ngb-tab title="Financeiro">
+						<ng-template ngbTabContent>
+						</ng-template>
+					</ngb-tab>
+				</ngb-tabset>
+
 			</div>
 			<div class="m-portlet__foot m-portlet__foot--fit">
 				<div class="m-form__actions">

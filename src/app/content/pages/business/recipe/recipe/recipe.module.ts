@@ -12,6 +12,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MatInputModule, MatFormFieldModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap/tabset/tabset.module';
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
 	ReactiveFormsModule,
 	CPCommonComponentsModule,
 	TranslateModule.forChild(),
-	RouterModule.forChild(routes)
+	RouterModule.forChild(routes),
+	NgbTabsetModule
   ],
   declarations: [
     RecipeComponent

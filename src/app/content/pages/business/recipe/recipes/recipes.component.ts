@@ -14,26 +14,26 @@ import { CpRoutes } from '../../../../../core/constants/cp-routes';
 export class RecipesComponent implements OnInit {
 
     recipes: RecipeDTO[];
-    
+
     constructor(
         private _service: RecipeService,
         private _loading: CpLoadingService,
         private _router: Router
     ) { }
-        
+
     ngOnInit() {
         this.fetchRecipes();
     }
-        
+
     fetchRecipes(): any {
-        this._loading.show();
+        //this._loading.show();
         this._service.get().subscribe(
             (apiResponse: ApiResponse) => {
                 this.recipes = apiResponse.data;
-                this._loading.hide();
+          //      this._loading.hide();
             },
             error => {
-                this._loading.hide();
+            //    this._loading.hide();
             }
         )
     }
@@ -45,6 +45,5 @@ export class RecipesComponent implements OnInit {
 	edit(id: number) {
 		this._router.navigate([CpRoutes.RECIPE, id])
 	}
-        
+
 }
-    

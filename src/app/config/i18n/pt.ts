@@ -38,8 +38,10 @@ export const locale = {
 			INPUT: {
 				NAME: 'Nome',
 				CATEGORY: 'Categoria',
+				PREPARATION_TIME: 'Tempo de preparo',
 				UNIT: 'Medida',
-				DESCRIPTION: 'Descrição'
+				DESCRIPTION: 'Descrição',
+				UNITQUANTITY: 'Rendimento'
 			}
 		},
 		PROFILE: {
