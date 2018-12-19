@@ -40,7 +40,7 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 		private _toast: ToastrService
 	) {
 		super(_loading, _cdr);
-	 }
+	}
 
 	ngOnInit() {
 		this.formGroup = this._formBuilder.group({
@@ -106,8 +106,13 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 				}
 			});
 		}
-		let steps = this.recipe.steps;
-		//TODO: setar valores dos steps
+
+		if (this.recipe.steps.length > 0) {
+			this.formGroup.get('steps').reset();
+			this.recipe.steps.forEach((step) => {
+				this.addStep(step.description);
+			});
+		}
 	}
 
 	fetchCategories() {
@@ -115,7 +120,7 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 			(apiResponse: ApiResponse) => {
 				this.categories = apiResponse.data;
 			},
-			(apiResponse: ApiResponse) => {}
+			(apiResponse: ApiResponse) => { }
 		)
 	}
 
@@ -124,7 +129,7 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 			(apiResponse: ApiResponse) => {
 				this.units = apiResponse.data;
 			},
-			(apiResponse: ApiResponse) => {}
+			(apiResponse: ApiResponse) => { }
 		)
 	}
 
@@ -164,17 +169,17 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 	//Steps
 	private stepControlName: string = "steps";
 
-	createStep(order: number = 1) {
+	createStep(order: number = 1, description?: String) {
 		let form = this._formBuilder.group({
 			order: [order, [Validators.required]],
-			description: [null, [Validators.required]]
+			description: [description, [Validators.required]]
 		});
 		return form;
 	}
 
-	addStep() {
+	addStep(description?: String) {
 		const control = this.formGroup.controls[this.stepControlName] as FormArray;
-		control.push(this.createStep(control.length+1));
+		control.push(this.createStep(control.length + 1, description));
 	}
 
 	removeStep(index: number) {
