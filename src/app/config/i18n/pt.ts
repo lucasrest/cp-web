@@ -17,7 +17,8 @@ export const locale = {
 			OPTION_DEFAULT: 'Selecione uma opção',
 			SAVE: 'Salvar',
 			BACK: 'Voltar',
-			NEW: 'Novo'
+			NEW: 'Novo',
+			NEW_STEP: 'Novo passo'
 		},
 		INGREDIENT: {
 			TITLE: 'Cadastro de Ingrediente',

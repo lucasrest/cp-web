@@ -50,7 +50,7 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 			unityQuantity: [null, [Validators.required]],
 			unit: [null, [Validators.required]],
 			description: [null, [Validators.required]],
-			steps: this._formBuilder.array([this.createStep(1)]),
+			steps: this._formBuilder.array([]),
 			financial: this._formBuilder.group({
 				totalCostValue: [null, [Validators.required]],
 				totalCostPerc: [null, [Validators.required]],
@@ -110,7 +110,8 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 		if (this.recipe.steps.length > 0) {
 			this.formGroup.get('steps').reset();
 			this.recipe.steps.forEach((step) => {
-				this.addStep(step.description);
+				console.log(step);
+				this.addStep(step.description, step.id);
 			});
 		}
 	}
@@ -169,17 +170,18 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 	//Steps
 	private stepControlName: string = "steps";
 
-	createStep(order: number = 1, description?: String) {
+	createStep(order: number = 1, description?: String, id?: number) {
 		let form = this._formBuilder.group({
+			id: [id],
 			order: [order, [Validators.required]],
 			description: [description, [Validators.required]]
 		});
 		return form;
 	}
 
-	addStep(description?: String) {
+	addStep(description?: String, id?: number) {
 		const control = this.formGroup.controls[this.stepControlName] as FormArray;
-		control.push(this.createStep(control.length + 1, description));
+		control.push(this.createStep(control.length + 1, description, id));
 	}
 
 	removeStep(index: number) {

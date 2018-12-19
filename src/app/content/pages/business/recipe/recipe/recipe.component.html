@@ -74,6 +74,7 @@
 							<div formArrayName="steps"
 								*ngFor="let step of formGroup.get('steps').controls; let i = index">
 								<div class="form-group m-form__group" [formGroupName]="i">
+									<input type="hidden" formControlName="id">
 									<div class="input-group">
 										<div class="input-group-prepend">
 											<div class="input-group-text">{{i+1}}</div>
@@ -84,8 +85,8 @@
 								</div>
 							</div>
 							<div class="text-center">
-								<button class="btn btn-accent m-btn m-btn--air m-btn--custom" mat-button (click)="addStep()" translate>
-									{{ 'INPUTS.NEW' }}
+								<button class="btn btn-link" mat-button (click)="addStep()" translate>
+									{{ 'INPUTS.NEW_STEP' }}
 								</button>
 							</div>
 						</ng-template>
