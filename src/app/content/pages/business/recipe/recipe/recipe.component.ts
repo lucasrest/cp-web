@@ -62,6 +62,10 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 		this.fetchCategories();
 		this.fetchUnits();
 
+		this.getRecipeParam();
+	}
+
+	getRecipeParam() {
 		this.paramsSub = this._route.params.subscribe(params => {
 			let id = +params['id'];
 			if (id) {
@@ -81,7 +85,29 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 	}
 
 	fillForm() {
+		this.formGroup.patchValue({
+			name: this.recipe.name,
+			recipeCategory: this.recipe.recipeCategory,
+			unityQuantity: this.recipe.unityQuantity,
+			unit: this.recipe.unit,
+			preparationTime: this.recipe.preparationTime,
+			description: this.recipe.description
+		});
 
+
+		let financial = this.recipe.financial;
+		if (financial) {
+			this.formGroup.patchValue({
+				financial: {
+					totalCostValue: financial.totalCostValue ? financial.totalCostValue : 0,
+					totalCostPerc: financial.totalCostPerc ? financial.totalCostPerc : 0,
+					costUnitValue: financial.costUnitValue ? financial.costUnitValue : 0,
+					costUnitPerc: financial.costUnitPerc ? financial.costUnitPerc : 0
+				}
+			});
+		}
+		let steps = this.recipe.steps;
+		//TODO: setar valores dos steps
 	}
 
 	fetchCategories() {
@@ -139,12 +165,10 @@ export class RecipeComponent extends CpBaseComponent implements OnInit {
 	private stepControlName: string = "steps";
 
 	createStep(order: number = 1) {
-		console.log(order);
 		let form = this._formBuilder.group({
 			order: [order, [Validators.required]],
 			description: [null, [Validators.required]]
 		});
-		console.log(form.value);
 		return form;
 	}
 

@@ -116,7 +116,6 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 					this._router.navigate([CpRoutes.INGREDIENTS]);
 				},
 				error => {
-					console.log(error);
 					this._loading.hide();
 				}
 			);
