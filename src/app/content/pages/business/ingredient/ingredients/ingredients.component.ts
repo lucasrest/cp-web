@@ -5,6 +5,8 @@ import { IngredientDTO } from '../../../../../core/models/business/dto/ingredien
 import { CpLoadingService } from '../../../../../core/services/common/cp-loading.service';
 import { Router } from '@angular/router';
 import { CpRoutes } from '../../../../../core/constants/cp-routes';
+import { CPLocalStorageService } from '../../../../../core/services/common/cp-localstorage.service';
+import { CpFilter } from '../../../../../core/models/common/filter';
 
 @Component({
 	selector: 'm-ingredients',
@@ -18,6 +20,7 @@ export class IngredientsComponent implements OnInit {
 	constructor(
 		private _service: IngredientService,
 		private _loading: CpLoadingService,
+		private _localStorage: CPLocalStorageService,
 		private _router: Router
 	) { }
 
@@ -27,7 +30,7 @@ export class IngredientsComponent implements OnInit {
 
 	fetchIngredients() {
 		this._loading.show();
-		this._service.getReduced()
+		this._service.getByUser(this._localStorage.getLoggedUser().id)
 			.subscribe((apiResponse: ApiResponse) => {
 				this.ingredients = apiResponse.data;
 			}, (apiResponse: ApiResponse) => {

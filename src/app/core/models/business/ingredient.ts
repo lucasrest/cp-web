@@ -1,3 +1,5 @@
+import { User } from "../user";
+
 export interface Ingredient {
 
 	id: number;
@@ -6,5 +8,7 @@ export interface Ingredient {
     purchasePrice: any;
     unit: any;
     description: string;
+    user: User;
+    ingredientCopiedId: number;
 
 }

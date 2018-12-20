@@ -107,8 +107,10 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 	save() {
 		this._loading.show();
 		this.formGroup.value.user = this._localStorage.getLoggedUser();
-		if (this.ingredient && this.ingredient.id) {
+		this.verifyPurchasePrice();
+		if (this.ingredient && this.ingredient.id && this.ingredient.user) {
 			this.formGroup.value.id = this.ingredient.id;
+			this.formGroup.value.ingredientCopiedId = this.ingredient.ingredientCopiedId;
 			this._service.update(this.formGroup.value).subscribe(
 				apiResponse => {
 					this._loading.hide();
@@ -120,6 +122,8 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				}
 			);
 		} else {
+			if (this.ingredient)
+				this.formGroup.value.ingredientCopiedId = this.ingredient.id;
 			this._service.insert(this.formGroup.value).subscribe(
 				apiResponse => {
 					this._loading.hide();
@@ -131,6 +135,17 @@ export class IngredientComponent extends CpBaseComponent implements OnInit, OnDe
 				}
 			);
 		}
+	}
+	verifyPurchasePrice() {
+		let purchasePrice = this.formGroup.value.purchasePrice;
+		if (purchasePrice &&
+			!purchasePrice.price &&
+			!purchasePrice.unityQuantity &&
+			!purchasePrice.unit
+		) {
+			this.formGroup.value.purchasePrice = null
+		}
+
 	}
 
 	cancel() {

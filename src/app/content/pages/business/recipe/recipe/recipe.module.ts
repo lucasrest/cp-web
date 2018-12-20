@@ -15,35 +15,35 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbTabsetModule } from '@ng-bootstrap/ng-bootstrap/tabset/tabset.module';
 
 const routes: Routes = [
-  {
-      path: '',
-      component: RecipeComponent
-  }
+	{
+		path: '',
+		component: RecipeComponent
+	}
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-	MetronicCoreModule,
-	LayoutModule,
-	PartialsModule,
-	AngularEditorModule,
-	MatInputModule,
-	MatFormFieldModule,
-	MatCheckboxModule,
-	MatIconModule,
-	MatOptionModule,
-	MatSelectModule,
-	ReactiveFormsModule,
-	CommonServiceModule,
-	ReactiveFormsModule,
-	CPCommonComponentsModule,
-	TranslateModule.forChild(),
-	RouterModule.forChild(routes),
-	NgbTabsetModule
-  ],
-  declarations: [
-    RecipeComponent
-  ]
+	imports: [
+		CommonModule,
+		MetronicCoreModule,
+		LayoutModule,
+		PartialsModule,
+		AngularEditorModule,
+		MatInputModule,
+		MatFormFieldModule,
+		MatCheckboxModule,
+		MatIconModule,
+		MatOptionModule,
+		MatSelectModule,
+		ReactiveFormsModule,
+		CommonServiceModule,
+		ReactiveFormsModule,
+		CPCommonComponentsModule,
+		TranslateModule.forChild(),
+		RouterModule.forChild(routes),
+		NgbTabsetModule
+	],
+	declarations: [
+		RecipeComponent
+	]
 })
 export class RecipeModule { }

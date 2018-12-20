@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Ingredient } from '../../models/business/ingredient';
 import { IngredientDTO } from '../../models/business/dto/ingredient-dto';
 import { ApiResponse } from '../../models/api-response';
+import { CpFilter } from '../../models/common/filter';
 
 @Injectable()
 export class IngredientService {
@@ -28,6 +29,10 @@ export class IngredientService {
 
 	public getReduced(): Observable<ApiResponse> {
 		return this._apiService.get(`${ENDPOINTS.BUSINESS.INGREDIENTS}/reduced`);
+	}
+
+	public getByUser(userId: number): Observable<ApiResponse> {
+		return this._apiService.post(`${ENDPOINTS.BUSINESS.INGREDIENTS}/user/${userId}`, {});
 	}
 
 	public getById(id: number): Observable<ApiResponse> {
