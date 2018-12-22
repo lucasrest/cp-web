@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:8080/chefpro'
+  //BASE_URL: 'http://localhost:8080/chefpro'
+  BASE_URL: 'https://chef-pro.herokuapp.com/chefpro'
 
 };
