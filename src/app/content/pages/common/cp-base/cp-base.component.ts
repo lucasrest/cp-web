@@ -10,7 +10,7 @@ import { CpLoadingService } from '../../../../core/services/common/cp-loading.se
 })
 export class CpBaseComponent implements OnInit {
 
-    protected formGroup: FormGroup;
+    formGroup: FormGroup;
 
     private _alertSubscription: Subscription;
 
