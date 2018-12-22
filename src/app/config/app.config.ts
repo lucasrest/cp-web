@@ -1,6 +1,8 @@
+import { environment } from "../../environments/environment";
+
 export const API = {
 
-  BASE_URL: 'http://localhost:8080/chefpro',
+  BASE_URL: environment.BASE_URL,
   BASE_URI: '/api/v1'
 
 }
